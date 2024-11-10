@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1440</width>
+    <height>810</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="font">
+       <font>
+        <family>Century Gothic</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabWidget::pane {
+    border: 1px solid #ccc;
+    background: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 rgba(255, 144, 0, 77),
+        stop: 1 rgba(0, 102, 174, 77)
+    );
+}
+
+QTabBar::tab:selected {
+     text-decoration: underline;
+}
+</string>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="MainTab">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <attribute name="title">
+        <string>Главная</string>
+       </attribute>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>233</x>
+          <y>112</y>
+          <width>975</width>
+          <height>562</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(255, 255, 255, 0.34);
+border-radius: 60px;
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QTextBrowser" name="textBrowser">
+         <property name="geometry">
+          <rect>
+           <x>147</x>
+           <y>80</y>
+           <width>691</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextBrowser {
+    background-color: transparent;
+    user-select: none; 
+}</string>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.15094pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:24pt;&quot;&gt;Лабораторный практикум&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:24pt;&quot;&gt;по предмету “Управление данными”&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="FirstLabButton">
+         <property name="geometry">
+          <rect>
+           <x>192</x>
+           <y>213</y>
+           <width>278</width>
+           <height>113</height>
+          </rect>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>278</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="geometry">
+          <rect>
+           <x>192</x>
+           <y>367</y>
+           <width>278</width>
+           <height>113</height>
+          </rect>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>278</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+         </property>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="geometry">
+          <rect>
+           <x>506</x>
+           <y>367</y>
+           <width>278</width>
+           <height>113</height>
+          </rect>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>278</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+         </property>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="geometry">
+          <rect>
+           <x>506</x>
+           <y>213</y>
+           <width>278</width>
+           <height>113</height>
+          </rect>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>278</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+         </property>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </widget>
+        <zorder>FirstLabButton</zorder>
+        <zorder>textBrowser</zorder>
+        <zorder>pushButton_2</zorder>
+        <zorder>pushButton_3</zorder>
+        <zorder>pushButton_4</zorder>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="FirstLabTab">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="title">
+        <string>Лаборарная работа №1</string>
+       </attribute>
+       <widget class="QTextBrowser" name="textBrowser_2">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>230</y>
+          <width>256</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.15094pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.15094pt;&quot;&gt;helll&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.15094pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
