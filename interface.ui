@@ -31,21 +31,26 @@
       </property>
       <property name="styleSheet">
        <string notr="true">QTabWidget::pane {
-    border: 1px solid #ccc;
+    border: none;
     background: qlineargradient(
         x1: 0, y1: 0, x2: 1, y2: 1,
         stop: 0 rgba(255, 144, 0, 77),
         stop: 1 rgba(0, 102, 174, 77)
     );
 }
-
+QTabBar::tab {
+	background: transparent;
+	 padding: 0 10px;
+ }
 QTabBar::tab:selected {
      text-decoration: underline;
 }
-</string>
+QTabBar::tab:!selected {
+	 color: black;
+ }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="MainTab">
        <property name="styleSheet">
@@ -612,7 +617,7 @@ p, li { white-space: pre-wrap; }
          <property name="geometry">
           <rect>
            <x>163</x>
-           <y>180</y>
+           <y>170</y>
            <width>278</width>
            <height>113</height>
           </rect>
@@ -659,7 +664,7 @@ QPushButton:pressed {
          <property name="geometry">
           <rect>
            <x>473</x>
-           <y>180</y>
+           <y>170</y>
            <width>278</width>
            <height>113</height>
           </rect>
@@ -706,7 +711,7 @@ QPushButton:pressed {
          <property name="geometry">
           <rect>
            <x>163</x>
-           <y>320</y>
+           <y>310</y>
            <width>585</width>
            <height>113</height>
           </rect>

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="change style button">
+    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="change style scroll-bar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface.ui" beforeDir="false" afterPath="$PROJECT_DIR$/interface.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731346768814</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="change style scroll-bar">
+      <option name="closed" value="true" />
+      <created>1731347395208</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731347395208</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -179,7 +187,8 @@
     <MESSAGE value="adding example tab" />
     <MESSAGE value="fix title" />
     <MESSAGE value="change style button" />
-    <option name="LAST_COMMIT_MESSAGE" value="change style button" />
+    <MESSAGE value="change style scroll-bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="change style scroll-bar" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
