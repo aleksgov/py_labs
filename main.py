@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTabWidget, QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTabWidget, QWidget
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
@@ -17,13 +17,18 @@ class MainWindow(QMainWindow):
         self.theoryFirstLabTab = self.findChild(QWidget, 'TheoryFirstLabTab')
 
         self.web_view = QWebEngineView(self.theoryFirstLabTab)
-        self.web_view.setGeometry(210, 85, 1100, 650)
+        self.web_view.setGeometry(210, 110, 1100, 650)
 
         page = self.web_view.page()
         page.setBackgroundColor(Qt.transparent)
 
-        self.firstLabButton.clicked.connect(self.open_tab)
-        self.theoryFirstLabButton.clicked.connect(self.open_theory)
+        self.buttonTabMap = {
+            self.firstLabButton: (self.firstLabTab, "Лабораторная работа №1"),
+            self.theoryFirstLabButton: (self.theoryFirstLabTab, "Теория")
+        }
+        for button, (tab, label) in self.buttonTabMap.items():
+            button.clicked.connect(lambda checked, _tab=tab, _label=label: self.open_tab(_tab, _label))
+
         self.close_other_tabs()
         self.tab_widget.currentChanged.connect(self.on_tab_changed)
 
@@ -37,13 +42,11 @@ class MainWindow(QMainWindow):
         for i in range(num_tabs - 1, index, -1):
             self.tab_widget.removeTab(i)
 
-    def open_tab(self):
-        self.tab_widget.insertTab(1, self.firstLabTab, "Лабораторная работа №1")
-        self.tab_widget.setCurrentIndex(1)
-
-    def open_theory(self):
-        self.tab_widget.insertTab(2, self.theoryFirstLabTab, "Теория")
-        self.tab_widget.setCurrentIndex(2)
+    def open_tab(self, tab, label):
+        index = self.tab_widget.indexOf(tab)
+        if index == -1:
+            index = self.tab_widget.addTab(tab, label)
+        self.tab_widget.setCurrentIndex(index)
 
     def on_tab_changed(self, index):
         self.close_tabs_after(index)
