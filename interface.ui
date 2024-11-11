@@ -119,6 +119,9 @@ p, li { white-space: pre-wrap; }
            <pointsize>-1</pointsize>
           </font>
          </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
     border-radius: 30px;                  
@@ -499,6 +502,11 @@ QPushButton:pressed {
          <enum>QFrame::Raised</enum>
         </property>
        </widget>
+      </widget>
+      <widget class="QWidget" name="ExampleFirstLabTab">
+       <attribute name="title">
+        <string>Пример</string>
+       </attribute>
       </widget>
      </widget>
     </item>

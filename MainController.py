@@ -11,9 +11,11 @@ class MainWindow(QMainWindow):
 
         self.firstLabButton = self.findChild(QPushButton, 'FirstLabButton')
         self.theoryFirstLabButton = self.findChild(QPushButton, 'TheoryFirstLabButton')
+        self.exampleFirstLabButton = self.findChild(QPushButton, 'ExampleFirstLabButton')
         self.tab_widget = self.findChild(QTabWidget, 'tabWidget')
         self.firstLabTab = self.findChild(QWidget, 'FirstLabTab')
         self.theoryFirstLabTab = self.findChild(QWidget, 'TheoryFirstLabTab')
+        self.exampleFirstLabTab = self.findChild(QWidget, 'ExampleFirstLabTab')
 
         self.web_view = QWebEngineView(self.theoryFirstLabTab)
         self.web_view.setGeometry(210, 110, 1100, 650)
@@ -23,7 +25,8 @@ class MainWindow(QMainWindow):
 
         self.buttonTabMap = {
             self.firstLabButton: (self.firstLabTab, "Лабораторная работа №1"),
-            self.theoryFirstLabButton: (self.theoryFirstLabTab, "Теория")
+            self.theoryFirstLabButton: (self.theoryFirstLabTab, "Теория"),
+            self.exampleFirstLabButton: (self.exampleFirstLabTab, "Пример")
         }
         for button, (tab, label) in self.buttonTabMap.items():
             button.clicked.connect(lambda checked, _tab=tab, _label=label: self.open_tab(_tab, _label))
