@@ -45,7 +45,7 @@ QTabBar::tab:selected {
 </string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="MainTab">
        <property name="styleSheet">
@@ -116,6 +116,9 @@ border-radius: 60px;
             <pointsize>-1</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
@@ -126,7 +129,7 @@ border-radius: 60px;
            <string notr="true">QPushButton {
     border-radius: 30px;                  
     padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
+    background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           
     border: none;                     
@@ -227,6 +230,9 @@ QPushButton:pressed {
             <pointsize>-1</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
@@ -237,7 +243,7 @@ QPushButton:pressed {
            <string notr="true">QPushButton {
     border-radius: 30px;                  
     padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
+    background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           
     border: none;                     
@@ -338,6 +344,9 @@ QPushButton:pressed {
             <pointsize>-1</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
@@ -348,7 +357,7 @@ QPushButton:pressed {
            <string notr="true">QPushButton {
     border-radius: 30px;                  
     padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
+    background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           
     border: none;                     
@@ -449,6 +458,9 @@ QPushButton:pressed {
             <pointsize>-1</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
@@ -459,7 +471,7 @@ QPushButton:pressed {
            <string notr="true">QPushButton {
     border-radius: 30px;                  
     padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
+    background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           
     border: none;                     
@@ -552,7 +564,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>263</x>
-          <y>112</y>
+          <y>130</y>
           <width>914</width>
           <height>515</height>
          </rect>
@@ -572,7 +584,7 @@ border-radius: 60px;
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>65</y>
+           <y>70</y>
            <width>911</width>
            <height>91</height>
           </rect>
@@ -600,7 +612,7 @@ p, li { white-space: pre-wrap; }
          <property name="geometry">
           <rect>
            <x>163</x>
-           <y>165</y>
+           <y>180</y>
            <width>278</width>
            <height>113</height>
           </rect>
@@ -617,11 +629,14 @@ p, li { white-space: pre-wrap; }
            <pointsize>-1</pointsize>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
     border-radius: 30px;                  
     padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
+    background-color: rgba(255, 255, 255, 1);           
     font-size: 36px;
     font-family: 'Century Gothic';           
     border: none;                     
@@ -644,7 +659,7 @@ QPushButton:pressed {
          <property name="geometry">
           <rect>
            <x>473</x>
-           <y>165</y>
+           <y>180</y>
            <width>278</width>
            <height>113</height>
           </rect>
@@ -661,11 +676,14 @@ QPushButton:pressed {
            <pointsize>-1</pointsize>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
     border-radius: 30px;                  
     padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
+    background-color: rgba(255, 255, 255, 1);           
     font-size: 36px;
     font-family: 'Century Gothic';           
     border: none;                     
@@ -688,7 +706,7 @@ QPushButton:pressed {
          <property name="geometry">
           <rect>
            <x>163</x>
-           <y>316</y>
+           <y>320</y>
            <width>585</width>
            <height>113</height>
           </rect>
@@ -705,11 +723,14 @@ QPushButton:pressed {
            <pointsize>-1</pointsize>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
     border-radius: 30px;                  
     padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
+    background-color: rgba(255, 255, 255, 1);           
     font-size: 36px;
     font-family: 'Century Gothic';           
     border: none;                     
