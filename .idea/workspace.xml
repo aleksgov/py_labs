@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="adding pseudo-controller">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainController.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface.ui" beforeDir="false" afterPath="$PROJECT_DIR$/interface.ui" afterDir="false" />
-    </list>
+    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="adding example tab" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731317542287</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adding example tab">
+      <option name="closed" value="true" />
+      <created>1731319303520</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731319303520</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -142,7 +146,8 @@
     <MESSAGE value="html view" />
     <MESSAGE value="add map_button logic" />
     <MESSAGE value="adding pseudo-controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding pseudo-controller" />
+    <MESSAGE value="adding example tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding example tab" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

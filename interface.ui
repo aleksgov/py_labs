@@ -468,7 +468,7 @@ QPushButton:pressed {
 </string>
          </property>
          <property name="text">
-          <string>Примеры заданий</string>
+          <string>Варианты заданий</string>
          </property>
         </widget>
        </widget>
