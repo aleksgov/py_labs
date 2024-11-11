@@ -58,7 +58,7 @@ QTabBar::tab:selected {
         <property name="geometry">
          <rect>
           <x>233</x>
-          <y>112</y>
+          <y>110</y>
           <width>975</width>
           <height>562</height>
          </rect>
@@ -74,22 +74,463 @@ border-radius: 60px;
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QTextBrowser" name="textBrowser">
+        <widget class="QWidget" name="SecondLabWidget" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="geometry">
           <rect>
-           <x>147</x>
-           <y>80</y>
-           <width>691</width>
-           <height>101</height>
+           <x>506</x>
+           <y>213</y>
+           <width>285</width>
+           <height>118</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget {
+      border-radius: 30px;
+      background-color: transparent;
+}</string>
+         </property>
+         <widget class="QPushButton" name="SecondLabButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>285</width>
+            <height>118</height>
+           </rect>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>278</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Century Gothic</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label3">
+          <property name="geometry">
+           <rect>
+            <x>17</x>
+            <y>11</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label4">
+          <property name="geometry">
+           <rect>
+            <x>72</x>
+            <y>20</y>
+            <width>205</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;
+    &lt;head/&gt;
+    &lt;body&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="ThirdLabWidget" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>184</x>
+           <y>367</y>
+           <width>285</width>
+           <height>118</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget {
+      border-radius: 30px;
+      background-color: transparent;
+}</string>
+         </property>
+         <widget class="QPushButton" name="ThirdLabButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>285</width>
+            <height>118</height>
+           </rect>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>278</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Century Gothic</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label5">
+          <property name="geometry">
+           <rect>
+            <x>17</x>
+            <y>11</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label6">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>20</y>
+            <width>205</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;
+    &lt;head/&gt;
+    &lt;body&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="FourthLabWidget" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>506</x>
+           <y>367</y>
+           <width>285</width>
+           <height>118</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget {
+      border-radius: 30px;
+      background-color: transparent;
+}</string>
+         </property>
+         <widget class="QPushButton" name="FourthLabButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>285</width>
+            <height>118</height>
+           </rect>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>278</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Century Gothic</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label7">
+          <property name="geometry">
+           <rect>
+            <x>17</x>
+            <y>11</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label8">
+          <property name="geometry">
+           <rect>
+            <x>72</x>
+            <y>20</y>
+            <width>205</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;
+    &lt;head/&gt;
+    &lt;body&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="FirstLabWidget" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>184</x>
+           <y>213</y>
+           <width>285</width>
+           <height>118</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget {
+      border-radius: 30px;
+      background-color: transparent;
+}</string>
+         </property>
+         <widget class="QPushButton" name="FirstLabButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>285</width>
+            <height>118</height>
+           </rect>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>278</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Century Gothic</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    border-radius: 30px;                  
+    padding: 0;                
+    background-color: rgba(255, 255, 255, 0.65);           
+    font-size: 72px;
+    font-family: 'Century Gothic';           
+    border: none;                     
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label1">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>11</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label2">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>20</y>
+            <width>205</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;
+    &lt;head/&gt;
+    &lt;body&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
+            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QLabel" name="name_labs">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>70</y>
+           <width>663</width>
+           <height>86</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextBrowser {
-    background-color: transparent;
-    user-select: none; 
-}</string>
+          <string notr="true">background-color: transparent;</string>
          </property>
-         <property name="html">
+         <property name="text">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -98,190 +539,6 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:24pt;&quot;&gt;по предмету “Управление данными”&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="FirstLabButton">
-         <property name="geometry">
-          <rect>
-           <x>192</x>
-           <y>213</y>
-           <width>278</width>
-           <height>113</height>
-          </rect>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>278</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Century Gothic</family>
-           <pointsize>-1</pointsize>
-          </font>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-    border-radius: 30px;                  
-    padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
-    font-size: 72px;
-    font-family: 'Century Gothic';           
-    border: none;                     
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.85); 
-}
-
-QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.5);  
-}
-</string>
-         </property>
-         <property name="text">
-          <string>1</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="geometry">
-          <rect>
-           <x>192</x>
-           <y>367</y>
-           <width>278</width>
-           <height>113</height>
-          </rect>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>278</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Century Gothic</family>
-           <pointsize>-1</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-    border-radius: 30px;                  
-    padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
-    font-size: 72px;
-    font-family: 'Century Gothic';           
-    border: none;                     
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.85); 
-}
-
-QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.5);  
-}
-</string>
-         </property>
-         <property name="text">
-          <string>3</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="geometry">
-          <rect>
-           <x>506</x>
-           <y>367</y>
-           <width>278</width>
-           <height>113</height>
-          </rect>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>278</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Century Gothic</family>
-           <pointsize>-1</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-    border-radius: 30px;                  
-    padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
-    font-size: 72px;
-    font-family: 'Century Gothic';           
-    border: none;                     
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.85); 
-}
-
-QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.5);  
-}
-</string>
-         </property>
-         <property name="text">
-          <string>4</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="geometry">
-          <rect>
-           <x>506</x>
-           <y>213</y>
-           <width>278</width>
-           <height>113</height>
-          </rect>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>278</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Century Gothic</family>
-           <pointsize>-1</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-    border-radius: 30px;                  
-    padding: 0;                
-    background-color: rgba(255, 255, 255, 0.65);           
-    font-size: 72px;
-    font-family: 'Century Gothic';           
-    border: none;                     
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.85); 
-}
-
-QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.5);  
-}
-</string>
-         </property>
-         <property name="text">
-          <string>2</string>
-         </property>
-        </widget>
-        <zorder>FirstLabButton</zorder>
-        <zorder>textBrowser</zorder>
-        <zorder>pushButton_2</zorder>
-        <zorder>pushButton_3</zorder>
-        <zorder>pushButton_4</zorder>
        </widget>
       </widget>
       <widget class="QWidget" name="FirstLabTab">
@@ -291,7 +548,7 @@ QPushButton:pressed {
        <attribute name="title">
         <string>Лаборарная работа №1</string>
        </attribute>
-       <widget class="QFrame" name="frame_3">
+       <widget class="QFrame" name="FirstLabFrame">
         <property name="geometry">
          <rect>
           <x>263</x>

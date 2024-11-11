@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QTabWidget, QWidget
+from PyQt5.QtWidgets import QMainWindow, QPushButton, QTabWidget, QWidget, QLabel
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
@@ -28,6 +28,11 @@ class MainWindow(QMainWindow):
             self.theoryFirstLabButton: (self.theoryFirstLabTab, "Теория"),
             self.exampleFirstLabButton: (self.exampleFirstLabTab, "Пример")
         }
+
+        for i in range(1, 9):
+            label = self.findChild(QLabel, f"label{i}")
+            label.setAttribute(Qt.WA_TransparentForMouseEvents)
+
         for button, (tab, label) in self.buttonTabMap.items():
             button.clicked.connect(lambda checked, _tab=tab, _label=label: self.open_tab(_tab, _label))
 
