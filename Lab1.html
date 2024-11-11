@@ -4,6 +4,12 @@
 <head>
     <meta charset="utf-8">
     <style>
+        body {
+        padding-right: 80px;
+        }
+        ::-webkit-scrollbar {{
+            width: 4px;
+        }}
         .text-content {
             font-family: 'Century Gothic', sans-serif;
             font-weight: 400;
@@ -20,14 +26,6 @@
         .text-content p {
             text-indent: 30px;
             margin: 0;
-        }
-        .scroll-bar {
-            width: 10px;
-            height: 100%;
-            position: absolute;
-            right: -10px; /* сдвигаем полосу прокрутки за пределы контейнера */
-            top: 0;
-            background-color: #ccc;
         }
     </style>
 </head>

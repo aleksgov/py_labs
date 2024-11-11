@@ -1,5 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTabWidget, QWidget, QTextBrowser
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTabWidget, QWidget, QVBoxLayout
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtCore import Qt
 from PyQt5 import uic
 
 
@@ -14,7 +16,11 @@ class MainWindow(QMainWindow):
         self.firstLabTab = self.findChild(QWidget, 'FirstLabTab')
         self.theoryFirstLabTab = self.findChild(QWidget, 'TheoryFirstLabTab')
 
-        self.text_browser = self.findChild(QTextBrowser, 'textBrowser_3')
+        self.web_view = QWebEngineView(self.theoryFirstLabTab)
+        self.web_view.setGeometry(210, 85, 1100, 650)
+
+        page = self.web_view.page()
+        page.setBackgroundColor(Qt.transparent)
 
         self.firstLabButton.clicked.connect(self.open_tab)
         self.theoryFirstLabButton.clicked.connect(self.open_theory)
@@ -39,10 +45,6 @@ class MainWindow(QMainWindow):
         self.tab_widget.insertTab(2, self.theoryFirstLabTab, "Теория")
         self.tab_widget.setCurrentIndex(2)
 
-    def open_main_tab(self):
-        self.close_other_tabs()
-        self.tab_widget.setCurrentIndex(0)
-
     def on_tab_changed(self, index):
         self.close_tabs_after(index)
         if index == 2:
@@ -51,7 +53,7 @@ class MainWindow(QMainWindow):
     def load_html_from_file(self):
         with open('Lab1.html', 'r', encoding='utf-8') as file:
             html_content = file.read()
-            self.text_browser.setHtml(html_content)
+            self.web_view.setHtml(html_content)
 
 
 if __name__ == "__main__":
