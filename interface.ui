@@ -791,6 +791,11 @@ QPushButton:pressed {
         <string>Пример</string>
        </attribute>
       </widget>
+      <widget class="QWidget" name="VariantsFirstLabTab">
+       <attribute name="title">
+        <string>Задачи</string>
+       </attribute>
+      </widget>
      </widget>
     </item>
    </layout>
