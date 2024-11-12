@@ -1,8 +1,7 @@
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QTabWidget, QWidget, QLabel
+from PyQt5.QtWidgets import QMainWindow, QPushButton, QTabWidget, QWidget, QLabel, QVBoxLayout
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -48,10 +47,20 @@ class MainWindow(QMainWindow):
         num_tabs = self.tab_widget.count()
         for i in range(num_tabs - 1, index, -1):
             self.tab_widget.removeTab(i)
+    def create_arrow_tab(self):
+        arrow_tab = QWidget()
+        layout = QVBoxLayout(arrow_tab)
+        arrow_label = QLabel("→", arrow_tab)
+        arrow_label.setAlignment(Qt.AlignCenter)
+        layout.addWidget(arrow_label)
+        return arrow_tab
 
     def open_tab(self, tab, label):
         index = self.tab_widget.indexOf(tab)
         if index == -1:
+            arrow_tab = self.create_arrow_tab()
+            arrow_index = self.tab_widget.addTab(arrow_tab, "→")
+            self.tab_widget.setTabEnabled(arrow_index, False)
             index = self.tab_widget.addTab(tab, label)
         self.tab_widget.setCurrentIndex(index)
 
