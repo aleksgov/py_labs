@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import QMainWindow, QScrollArea, QPushButton, QTabWidget, Q
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
+from PyQt5.QtWidgets import QGraphicsDropShadowEffect
+from PyQt5.QtGui import QColor
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -99,6 +101,12 @@ class MainWindow(QMainWindow):
 
         for i in range(30):
             btn = QPushButton("", scroll_area_widget)
+
+            shadow = QGraphicsDropShadowEffect()
+            shadow.setBlurRadius(15)
+            shadow.setOffset(0, 0)
+            shadow.setColor(QColor(0, 0, 0, 50))
+            btn.setGraphicsEffect(shadow)
 
             label_number = QLabel(f"{i + 1}", scroll_area_widget)
             label_text = QLabel("Вариант", scroll_area_widget)

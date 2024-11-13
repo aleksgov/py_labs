@@ -1,0 +1,169 @@
+Index: css_style/scroll.qss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>QScrollArea {\r\n    background: transparent;\r\n    border: none;\r\n}\r\n\r\nQScrollArea QScrollBar:vertical {\r\n    background-color: lightgray;\r\n    width: 6px;\r\n    border: 0px transparent;\r\n    border-radius: 1px;\r\n}\r\n\r\nQScrollArea QScrollBar::handle:vertical {\r\n    background-color: #888;\r\n    border-radius: 3px;\r\n}\r\n\r\nQScrollArea QScrollBar::handle:vertical:hover {\r\n    background-color: transparent;\r\n}\r\n\r\nQScrollArea QScrollBar::add-line:vertical,\r\nQScrollArea QScrollBar::sub-line:vertical {\r\n    height: 0;\r\n    background: none;\r\n}\r\n\r\nQScrollArea QScrollBar::add-page:vertical,\r\nQScrollArea QScrollBar::sub-page:vertical {\r\n    background-color: lightgray;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/css_style/scroll.qss b/css_style/scroll.qss
+--- a/css_style/scroll.qss	(revision 3a16ace350843cd84df65b996939096877e46157)
++++ b/css_style/scroll.qss	(date 1731498431893)
+@@ -7,7 +7,7 @@
+     background-color: lightgray;
+     width: 6px;
+     border: 0px transparent;
+-    border-radius: 1px;
++    border-radius: 3px;
+ }
+ 
+ QScrollArea QScrollBar::handle:vertical {
+@@ -16,16 +16,18 @@
+ }
+ 
+ QScrollArea QScrollBar::handle:vertical:hover {
+-    background-color: transparent;
++    background-color: #aaa;
+ }
+ 
+ QScrollArea QScrollBar::add-line:vertical,
+ QScrollArea QScrollBar::sub-line:vertical {
+     height: 0;
+     background: none;
++    border-radius: 3px;
+ }
+ 
+ QScrollArea QScrollBar::add-page:vertical,
+ QScrollArea QScrollBar::sub-page:vertical {
+     background-color: lightgray;
++    border-radius: 3px;
+ }
+Index: MainController.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from PyQt5.QtGui import QFont\r\nfrom PyQt5.QtWidgets import QMainWindow, QScrollArea, QPushButton, QTabWidget, QWidget, QLabel, QVBoxLayout, QHBoxLayout, QGridLayout\r\nfrom PyQt5.QtWebEngineWidgets import QWebEngineView\r\nfrom PyQt5.QtCore import Qt\r\nfrom PyQt5 import uic\r\n\r\nclass MainWindow(QMainWindow):\r\n    def __init__(self):\r\n        super().__init__()\r\n        uic.loadUi('interface.ui', self)\r\n\r\n        self.firstLabButton = self.findChild(QPushButton, 'FirstLabButton')\r\n        self.theoryFirstLabButton = self.findChild(QPushButton, 'TheoryFirstLabButton')\r\n        self.exampleFirstLabButton = self.findChild(QPushButton, 'ExampleFirstLabButton')\r\n        self.variantsFirstLabButton = self.findChild(QPushButton, 'VariantsFirstLabButton')\r\n        self.tab_widget = self.findChild(QTabWidget, 'tabWidget')\r\n        self.firstLabTab = self.findChild(QWidget, 'FirstLabTab')\r\n        self.theoryFirstLabTab = self.findChild(QWidget, 'TheoryFirstLabTab')\r\n        self.exampleFirstLabTab = self.findChild(QWidget, 'ExampleFirstLabTab')\r\n        self.variantsFirstLabTab = self.findChild(QWidget, 'VariantsFirstLabTab')\r\n\r\n        self.web_view = QWebEngineView(self.theoryFirstLabTab)\r\n        self.web_view.setGeometry(210, 110, 1100, 650)\r\n\r\n        page = self.web_view.page()\r\n        page.setBackgroundColor(Qt.transparent)\r\n\r\n        self.buttonTabMap = {\r\n            self.firstLabButton: (self.firstLabTab, \"Лабораторная работа №1\"),\r\n            self.theoryFirstLabButton: (self.theoryFirstLabTab, \"Теория\"),\r\n            self.exampleFirstLabButton: (self.exampleFirstLabTab, \"Пример\"),\r\n            self.variantsFirstLabButton: (self.variantsFirstLabTab, \"Задачи\")\r\n        }\r\n\r\n        for i in range(1, 9):\r\n            label = self.findChild(QLabel, f\"label{i}\")\r\n            label.setAttribute(Qt.WA_TransparentForMouseEvents)\r\n\r\n        for button, (tab, label) in self.buttonTabMap.items():\r\n            button.clicked.connect(lambda checked, _tab=tab, _label=label: self.open_tab(_tab, _label))\r\n\r\n        self.close_other_tabs()\r\n        self.tab_widget.currentChanged.connect(self.on_tab_changed)\r\n\r\n        self.create_buttons_in_variants_tab()\r\n\r\n    def close_other_tabs(self):\r\n        num_tabs = self.tab_widget.count()\r\n        for i in range(num_tabs - 1, 0, -1):\r\n            self.tab_widget.removeTab(i)\r\n\r\n    def close_tabs_after(self, index):\r\n        num_tabs = self.tab_widget.count()\r\n        for i in range(num_tabs - 1, index, -1):\r\n            self.tab_widget.removeTab(i)\r\n\r\n    def create_arrow_tab(self):\r\n        arrow_tab = QWidget()\r\n        layout = QVBoxLayout(arrow_tab)\r\n        arrow_label = QLabel(\"→\", arrow_tab)\r\n        arrow_label.setAlignment(Qt.AlignCenter)\r\n        layout.addWidget(arrow_label)\r\n        return arrow_tab\r\n\r\n    def open_tab(self, tab, label):\r\n        index = self.tab_widget.indexOf(tab)\r\n        if index == -1:\r\n            arrow_tab = self.create_arrow_tab()\r\n            arrow_index = self.tab_widget.addTab(arrow_tab, \"→\")\r\n            self.tab_widget.setTabEnabled(arrow_index, False)\r\n            index = self.tab_widget.addTab(tab, label)\r\n        self.tab_widget.setCurrentIndex(index)\r\n\r\n    def on_tab_changed(self, index):\r\n        self.close_tabs_after(index)\r\n        if index == 2:\r\n            self.load_html_from_file()\r\n\r\n    def load_html_from_file(self):\r\n        with open('Lab1.html', 'r', encoding='utf-8') as file:\r\n            html_content = file.read()\r\n            self.web_view.setHtml(html_content)\r\n\r\n    def create_buttons_in_variants_tab(self):\r\n        scroll_area = QScrollArea(self.variantsFirstLabTab)\r\n        scroll_area.setWidgetResizable(True)\r\n        qss = load_stylesheet(\"css_style\\\\scroll.qss\")\r\n        scroll_area.setStyleSheet(qss)\r\n        scroll_area_widget = QWidget()\r\n        layout = QGridLayout(scroll_area_widget)\r\n        layout.setHorizontalSpacing(53)\r\n        layout.setVerticalSpacing(48)\r\n\r\n        for i in range(30):\r\n            btn = QPushButton(\"\", scroll_area_widget)\r\n\r\n            label_number = QLabel(f\"{i + 1}\", scroll_area_widget)\r\n            label_text = QLabel(\"Вариант\", scroll_area_widget)\r\n\r\n            font_number = QFont(\"Century Gothic\", 40)\r\n            label_number.setFont(font_number)\r\n\r\n            font_text = QFont(\"Century Gothic\", 16)\r\n            label_text.setFont(font_text)\r\n\r\n            if i + 1 >= 10:\r\n                label_number.setContentsMargins(0, 0, 10, 0)\r\n                label_number.setFixedWidth(75)\r\n            else:\r\n                label_number.setContentsMargins(17, 0, 0, 0)\r\n                label_number.setFixedWidth(65)\r\n\r\n            label_text.setFixedWidth(110)\r\n            label_text.setContentsMargins(0, 0, 7, 0)\r\n\r\n            h_layout = QHBoxLayout()\r\n            h_layout.addWidget(label_number)\r\n            h_layout.addWidget(label_text)\r\n            h_layout.setSpacing(0)\r\n\r\n            btn.setLayout(h_layout)\r\n            btn.setFixedSize(200, 90)\r\n            btn.setStyleSheet(\"\"\"\r\n                background-color: white;\r\n                border-radius: 30px;\r\n            \"\"\")\r\n            btn.clicked.connect(lambda checked, index=i + 1: self.button_action(index))\r\n\r\n            row = i // 5\r\n            col = i % 5\r\n            layout.addWidget(btn, row, col)\r\n\r\n        scroll_area.setWidget(scroll_area_widget)\r\n\r\n        container_widget = QWidget(self.variantsFirstLabTab)\r\n        container_widget.setStyleSheet(\"background: transparent;\")\r\n        container_widget.setLayout(QVBoxLayout())\r\n        container_widget.layout().addWidget(scroll_area)\r\n        container_widget.resize(1267, 700)\r\n        container_widget.move(87, 60)\r\n\r\n    def button_action(self, index):\r\n        print(f\"Кнопка {index} нажата!\")\r\n\r\n\r\ndef load_stylesheet(self):\r\n    with open(self, 'r') as f:\r\n        return f.read()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MainController.py b/MainController.py
+--- a/MainController.py	(revision 3a16ace350843cd84df65b996939096877e46157)
++++ b/MainController.py	(date 1731498383091)
+@@ -3,6 +3,8 @@
+ from PyQt5.QtWebEngineWidgets import QWebEngineView
+ from PyQt5.QtCore import Qt
+ from PyQt5 import uic
++from PyQt5.QtWidgets import QGraphicsDropShadowEffect
++from PyQt5.QtGui import QColor
+ 
+ class MainWindow(QMainWindow):
+     def __init__(self):
+@@ -94,6 +96,12 @@
+         for i in range(30):
+             btn = QPushButton("", scroll_area_widget)
+ 
++            shadow = QGraphicsDropShadowEffect()
++            shadow.setBlurRadius(15)
++            shadow.setOffset(0, 0)
++            shadow.setColor(QColor(0, 0, 0, 50))
++            btn.setGraphicsEffect(shadow)
++
+             label_number = QLabel(f"{i + 1}", scroll_area_widget)
+             label_text = QLabel("Вариант", scroll_area_widget)
+ 
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Black\">\r\n    <option name=\"sdkName\" value=\"Python 3.10 (lab_practice) (2)\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.10\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 3a16ace350843cd84df65b996939096877e46157)
++++ b/.idea/misc.xml	(date 1731492953438)
+@@ -3,5 +3,5 @@
+   <component name="Black">
+     <option name="sdkName" value="Python 3.10 (lab_practice) (2)" />
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.7 (GraphDrawer)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"296a37a1-c59d-4af0-aed4-0ef22e5ebb2e\" name=\"Changes\" comment=\"change style scroll-bar\">\r\n      <change afterPath=\"$PROJECT_DIR$/css_style/scroll.qss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/lab_practice.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/lab_practice.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MainController.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MainController.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/css_style/gradient.qss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/css_style/gradient.qss\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;ZotovSasha&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/aleksgov/py_labs.git&quot;,\r\n    &quot;accountId&quot;: &quot;0a2fbd0c-d177-41ca-9743-ac9a33f29029&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2ofmbKyOcjaxSe53Y5AVqvXeJNL\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Python.Main.executor\": \"Run\",\r\n    \"Python.main.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"last_opened_file_path\": \"C:/Users/Aleks/PycharmProjects/lab_practice/main.py\",\r\n    \"settings.editor.selected.configurable\": \"http.proxy\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Aleks\\PycharmProjects\\lab_practice\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Aleks\\PycharmProjects\\lab_practice\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"PythonConfigurationType\" factoryName=\"Python\">\r\n      <module name=\"lab_practice\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"SDK_NAME\" value=\"Python 3.10\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"296a37a1-c59d-4af0-aed4-0ef22e5ebb2e\" name=\"Changes\" comment=\"\" />\r\n      <created>1731269074813</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1731269074813</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"new python lab_practice hah\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731276800614</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731276800614</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"create add. slides and tab system\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731309429823</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731309429823</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"html view\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731316042651</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731316042651</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"add map_button logic\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731317044662</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731317044662</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"adding pseudo-controller\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731317542287</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731317542287</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"adding example tab\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731319303520</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731319303520</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"fix title\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731319911192</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731319911192</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"change style button\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731346768814</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731346768814</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"change style scroll-bar\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731347395208</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731347395208</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"UnknownFeatures\">\r\n    <option featureType=\"com.intellij.fileTypeFactory\" implementationName=\"*.qss\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"new python lab_practice hah\" />\r\n    <MESSAGE value=\"create add. slides and tab system\" />\r\n    <MESSAGE value=\"html view\" />\r\n    <MESSAGE value=\"add map_button logic\" />\r\n    <MESSAGE value=\"adding pseudo-controller\" />\r\n    <MESSAGE value=\"adding example tab\" />\r\n    <MESSAGE value=\"fix title\" />\r\n    <MESSAGE value=\"change style button\" />\r\n    <MESSAGE value=\"change style scroll-bar\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"change style scroll-bar\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <watches-manager>\r\n      <configuration name=\"PythonConfigurationType\">\r\n        <watch expression=\"self\" />\r\n      </configuration>\r\n    </watches-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3a16ace350843cd84df65b996939096877e46157)
++++ b/.idea/workspace.xml	(date 1731497788232)
+@@ -5,12 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="change style scroll-bar">
+-      <change afterPath="$PROJECT_DIR$/css_style/scroll.qss" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/lab_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lab_practice.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/MainController.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainController.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/css_style/gradient.qss" beforeDir="false" afterPath="$PROJECT_DIR$/css_style/gradient.qss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/css_style/scroll.qss" beforeDir="false" afterPath="$PROJECT_DIR$/css_style/scroll.qss" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -49,17 +48,17 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Python.Main.executor": "Run",
+-    "Python.main.executor": "Run",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "master",
+-    "last_opened_file_path": "C:/Users/Aleks/PycharmProjects/lab_practice/main.py",
+-    "settings.editor.selected.configurable": "http.proxy"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
++    &quot;Python.main.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleks/PycharmProjects/lab_practice/main.py&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\Aleks\PycharmProjects\lab_practice" />
+@@ -78,7 +77,6 @@
+         <env name="PYTHONUNBUFFERED" value="1" />
+       </envs>
+       <option name="SDK_HOME" value="" />
+-      <option name="SDK_NAME" value="Python 3.10" />
+       <option name="WORKING_DIRECTORY" value="" />
+       <option name="IS_MODULE_SDK" value="false" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+Index: .idea/lab_practice.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/.venv\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"Python 3.10\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/lab_practice.iml b/.idea/lab_practice.iml
+--- a/.idea/lab_practice.iml	(revision 3a16ace350843cd84df65b996939096877e46157)
++++ b/.idea/lab_practice.iml	(date 1731492953432)
+@@ -4,7 +4,7 @@
+     <content url="file://$MODULE_DIR$">
+       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+     </content>
+-    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
++    <orderEntry type="jdk" jdkName="Python 3.7 (GraphDrawer)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
