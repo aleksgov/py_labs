@@ -42,6 +42,23 @@ class MainWindow(QMainWindow):
             self.variantsFirstLabButton: (self.variantsFirstLabTab, "Задачи")
         }
 
+        shadow_buttons = [self.FirstLabWidget, self.SecondLabWidget, self.ThirdLabWidget, self.FourthLabWidget,
+                       self.theoryFirstLabButton, self.exampleFirstLabButton, self.variantsFirstLabButton]
+        for button in shadow_buttons:
+            shadow = QGraphicsDropShadowEffect()
+            shadow.setBlurRadius(10)
+            shadow.setOffset(0, 0)
+            shadow.setColor(QColor(0, 0, 0, 50))
+            button.setGraphicsEffect(shadow)
+
+        shadow_frame = [self.TheoryFrame, self.TaskFrame]
+        for frame in shadow_frame:
+            shadow = QGraphicsDropShadowEffect()
+            shadow.setBlurRadius(15)
+            shadow.setOffset(0, 0)
+            shadow.setColor(QColor(0, 0, 0, 50))
+            frame.setGraphicsEffect(shadow)
+
         for i in range(1, 9):
             label = self.findChild(QLabel, f"label{i}")
             label.setAttribute(Qt.WA_TransparentForMouseEvents)
