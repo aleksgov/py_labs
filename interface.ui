@@ -799,9 +799,9 @@ QPushButton:pressed {
        <widget class="QFrame" name="TaskFrame">
         <property name="geometry">
          <rect>
-          <x>158</x>
+          <x>144</x>
           <y>85</y>
-          <width>1124</width>
+          <width>1152</width>
           <height>850</height>
          </rect>
         </property>

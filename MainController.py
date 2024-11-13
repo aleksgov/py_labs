@@ -28,7 +28,7 @@ class MainWindow(QMainWindow):
             self.taskFirstLabTab: QWebEngineView(self.taskFirstLabTab)
         }
 
-        self.load_html_from_file("Lab1.html", self.theoryFirstLabTab)
+        self.load_html_from_file("Documentation/FirstLab/FirstLabTheory.html", self.theoryFirstLabTab)
 
         for web_view in self.web_views.values():
             web_view.setGeometry(210, 110, 1100, 650)
@@ -101,10 +101,15 @@ class MainWindow(QMainWindow):
     def on_tab_changed(self, index):
         self.close_tabs_after(index)
 
-    def load_html_from_file(self, file_path, tab):
+    def load_html_from_file(self, file_path, tab, variant_index=None):
         with open(file_path, 'r', encoding='utf-8') as file:
             html_content = file.read()
-            self.web_views[tab].setHtml(html_content)
+
+        if variant_index is not None:
+            html_content = html_content.replace('<body onload="showVariant(1)">',
+                                                f'<body onload="showVariant({variant_index})">')
+        self.web_views[tab].setHtml(html_content)
+        self.web_views[tab].setHtml(html_content)
 
     def create_buttons_in_variants_tab(self):
         scroll_area = QScrollArea(self.variantsFirstLabTab)
@@ -172,8 +177,8 @@ class MainWindow(QMainWindow):
 
     def button_action(self, index):
         self.open_tab(self.taskFirstLabTab, f"Вариант №{index}")
-        file_path = f"FirstLabVariants\\Variant{index}.html"
-        self.load_html_from_file(file_path, self.taskFirstLabTab)
+        file_path = "Documentation/FirstLab/FirstLabVariants.html"
+        self.load_html_from_file(file_path, self.taskFirstLabTab, index)
 
 def load_stylesheet(self):
     with open(self, 'r') as f:
