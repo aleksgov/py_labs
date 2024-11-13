@@ -85,8 +85,39 @@ class MainWindow(QMainWindow):
         scroll_area = QScrollArea(self.variantsFirstLabTab)
         scroll_area.setWidgetResizable(True)
 
-        scroll_area.setStyleSheet("background: transparent; border: none;")
+        # Apply custom style with transparent background and custom scrollbar
+        scroll_area.setStyleSheet("""
+            QScrollArea {
+                background: transparent; 
+                border: none;
+            }
+            QScrollBar:vertical {
+                width: 6px;
+                background-color: transparent;
+                border-radius: 5px;
+            }
+            QScrollBar::handle:vertical {
+                background-color: #888;
+                border-radius: 5px;
+                min-height: 20px; 
+            }
+            QScrollBar::handle:vertical:hover {
+                background-color: #aaa;
+                border-radius: 5px;
+            }
+            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+                height: 0;
+                background: none;
+            }
+            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+                background: lightgray;
+                border-radius: 5px;
+            }
+        """)
+
         scroll_area_widget = QWidget()
+        scroll_area_widget.setStyleSheet(
+            "background: transparent;")  # Set transparent background for the scroll area widget
         layout = QGridLayout(scroll_area_widget)
         layout.setHorizontalSpacing(53)
         layout.setVerticalSpacing(48)
@@ -106,7 +137,6 @@ class MainWindow(QMainWindow):
             if i + 1 >= 10:
                 label_number.setContentsMargins(0, 0, 10, 0)
                 label_number.setFixedWidth(75)
-
             else:
                 label_number.setContentsMargins(17, 0, 0, 0)
                 label_number.setFixedWidth(65)
@@ -120,7 +150,6 @@ class MainWindow(QMainWindow):
             h_layout.setSpacing(0)
 
             btn.setLayout(h_layout)
-
             btn.setFixedSize(200, 90)
             btn.setStyleSheet("""
                 background-color: white;
@@ -134,7 +163,9 @@ class MainWindow(QMainWindow):
 
         scroll_area.setWidget(scroll_area_widget)
 
+        # Set transparent background for the container widget as well
         container_widget = QWidget(self.variantsFirstLabTab)
+        container_widget.setStyleSheet("background: transparent;")  # Ensure container is also transparent
         container_widget.setLayout(QVBoxLayout())
         container_widget.layout().addWidget(scroll_area)
         container_widget.resize(1267, 700)
