@@ -18,12 +18,20 @@ class MainWindow(QMainWindow):
         self.theoryFirstLabTab = self.findChild(QWidget, 'TheoryFirstLabTab')
         self.exampleFirstLabTab = self.findChild(QWidget, 'ExampleFirstLabTab')
         self.variantsFirstLabTab = self.findChild(QWidget, 'VariantsFirstLabTab')
+        self.taskFirstLabTab = self.findChild(QWidget, 'TaskFirstLabTab')
 
-        self.web_view = QWebEngineView(self.theoryFirstLabTab)
-        self.web_view.setGeometry(210, 110, 1100, 650)
+        self.web_views = {
+            self.theoryFirstLabTab: QWebEngineView(self.theoryFirstLabTab),
+            self.exampleFirstLabTab: QWebEngineView(self.exampleFirstLabTab),
+            self.taskFirstLabTab: QWebEngineView(self.taskFirstLabTab)
+        }
 
-        page = self.web_view.page()
-        page.setBackgroundColor(Qt.transparent)
+        self.load_html_from_file("Lab1.html", self.theoryFirstLabTab)
+
+        for web_view in self.web_views.values():
+            web_view.setGeometry(210, 110, 1100, 650)
+            page = web_view.page()
+            page.setBackgroundColor(Qt.transparent)
 
         self.buttonTabMap = {
             self.firstLabButton: (self.firstLabTab, "Лабораторная работа №1"),
@@ -73,13 +81,11 @@ class MainWindow(QMainWindow):
 
     def on_tab_changed(self, index):
         self.close_tabs_after(index)
-        if index == 2:
-            self.load_html_from_file()
 
-    def load_html_from_file(self):
-        with open('Lab1.html', 'r', encoding='utf-8') as file:
+    def load_html_from_file(self, file_path, tab):
+        with open(file_path, 'r', encoding='utf-8') as file:
             html_content = file.read()
-            self.web_view.setHtml(html_content)
+            self.web_views[tab].setHtml(html_content)
 
     def create_buttons_in_variants_tab(self):
         scroll_area = QScrollArea(self.variantsFirstLabTab)
@@ -140,8 +146,9 @@ class MainWindow(QMainWindow):
         container_widget.move(87, 60)
 
     def button_action(self, index):
-        print(f"Кнопка {index} нажата!")
-
+        self.open_tab(self.taskFirstLabTab, f"Вариант №{index}")
+        file_path = f"FirstLabVariants\\Variant{index}.html"
+        self.load_html_from_file(file_path, self.taskFirstLabTab)
 
 def load_stylesheet(self):
     with open(self, 'r') as f:

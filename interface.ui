@@ -760,7 +760,7 @@ QPushButton:pressed {
        <attribute name="title">
         <string>Теория</string>
        </attribute>
-       <widget class="QFrame" name="frame_2">
+       <widget class="QFrame" name="TheoryFrame">
         <property name="geometry">
          <rect>
           <x>158</x>
@@ -795,6 +795,36 @@ QPushButton:pressed {
        <attribute name="title">
         <string>Задачи</string>
        </attribute>
+      </widget>
+      <widget class="QWidget" name="TaskFirstLabTab">
+       <attribute name="title">
+        <string>Вариант №</string>
+       </attribute>
+       <widget class="QFrame" name="TaskFrame">
+        <property name="geometry">
+         <rect>
+          <x>158</x>
+          <y>85</y>
+          <width>1124</width>
+          <height>850</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+       border-top-left-radius: 60px;
+       border-top-right-radius: 60px;
+       border-bottom-left-radius: 0px;
+       border-bottom-right-radius: 0px;
+       background-color: white;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
