@@ -84,40 +84,9 @@ class MainWindow(QMainWindow):
     def create_buttons_in_variants_tab(self):
         scroll_area = QScrollArea(self.variantsFirstLabTab)
         scroll_area.setWidgetResizable(True)
-
-        # Apply custom style with transparent background and custom scrollbar
-        scroll_area.setStyleSheet("""
-            QScrollArea {
-                background: transparent; 
-                border: none;
-            }
-            QScrollBar:vertical {
-                width: 6px;
-                background-color: transparent;
-                border-radius: 5px;
-            }
-            QScrollBar::handle:vertical {
-                background-color: #888;
-                border-radius: 5px;
-                min-height: 20px; 
-            }
-            QScrollBar::handle:vertical:hover {
-                background-color: #aaa;
-                border-radius: 5px;
-            }
-            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-                height: 0;
-                background: none;
-            }
-            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-                background: lightgray;
-                border-radius: 5px;
-            }
-        """)
-
+        qss = load_stylesheet("css_style\\scroll.qss")
+        scroll_area.setStyleSheet(qss)
         scroll_area_widget = QWidget()
-        scroll_area_widget.setStyleSheet(
-            "background: transparent;")  # Set transparent background for the scroll area widget
         layout = QGridLayout(scroll_area_widget)
         layout.setHorizontalSpacing(53)
         layout.setVerticalSpacing(48)
@@ -163,9 +132,8 @@ class MainWindow(QMainWindow):
 
         scroll_area.setWidget(scroll_area_widget)
 
-        # Set transparent background for the container widget as well
         container_widget = QWidget(self.variantsFirstLabTab)
-        container_widget.setStyleSheet("background: transparent;")  # Ensure container is also transparent
+        container_widget.setStyleSheet("background: transparent;")
         container_widget.setLayout(QVBoxLayout())
         container_widget.layout().addWidget(scroll_area)
         container_widget.resize(1267, 700)
@@ -174,3 +142,7 @@ class MainWindow(QMainWindow):
     def button_action(self, index):
         print(f"Кнопка {index} нажата!")
 
+
+def load_stylesheet(self):
+    with open(self, 'r') as f:
+        return f.read()
