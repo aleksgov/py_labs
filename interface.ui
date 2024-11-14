@@ -59,7 +59,7 @@ QTabBar::tab:!selected {
        <attribute name="title">
         <string>Главная</string>
        </attribute>
-       <widget class="QFrame" name="frame">
+       <widget class="QFrame" name="MainFrame">
         <property name="geometry">
          <rect>
           <x>233</x>
@@ -133,6 +133,7 @@ border-radius: 60px;
           <property name="styleSheet">
            <string notr="true">QPushButton {
     border-radius: 30px;                  
+    padding: 0;                
     background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           
@@ -246,6 +247,7 @@ QPushButton:pressed {
           <property name="styleSheet">
            <string notr="true">QPushButton {
     border-radius: 30px;                  
+    padding: 0;                
     background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           
@@ -359,6 +361,7 @@ QPushButton:pressed {
           <property name="styleSheet">
            <string notr="true">QPushButton {
     border-radius: 30px;                  
+    padding: 0;                
     background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           
@@ -472,6 +475,7 @@ QPushButton:pressed {
           <property name="styleSheet">
            <string notr="true">QPushButton {
     border-radius: 30px;                  
+    padding: 0;                
     background-color: rgba(255, 255, 255, 1);           
     font-size: 72px;
     font-family: 'Century Gothic';           

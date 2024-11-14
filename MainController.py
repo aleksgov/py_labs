@@ -10,6 +10,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('interface.ui', self)
+        self.setMinimumSize(1440, 810)
 
         self.firstLabButton = self.findChild(QPushButton, 'FirstLabButton')
         self.theoryFirstLabButton = self.findChild(QPushButton, 'TheoryFirstLabButton')

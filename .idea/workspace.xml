@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="change style scroll-bar">
-      <change afterPath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabVariants.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/lab_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lab_practice.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstLabVariants/Variant1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstLabVariants/Variant2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabTheory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabTheory.html" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabTheory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabVariants.html" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabVariants.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainController.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css_style/scroll.qss" beforeDir="false" afterPath="$PROJECT_DIR$/css_style/scroll.qss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interface.ui" beforeDir="false" afterPath="$PROJECT_DIR$/interface.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
