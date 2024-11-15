@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="change style scroll-bar">
-      <change afterPath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabVariants.html" afterDir="false" />
+    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="add 6-19 task for variants">
+      <change afterPath="$PROJECT_DIR$/css_style/accordion.qss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/lab_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lab_practice.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstLabVariants/Variant1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstLabVariants/Variant2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabTheory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainController.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interface.ui" beforeDir="false" afterPath="$PROJECT_DIR$/interface.ui" afterDir="false" />
     </list>
@@ -58,8 +55,9 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleks/PycharmProjects/lab_practice/main.py&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleks/PycharmProjects/py_labs&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;
   }
 }</component>
@@ -85,6 +83,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -102,7 +101,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+        <option value="bundled-python-sdk-fb887030ada0-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.21565.199" />
       </set>
     </attachedChunks>
   </component>
@@ -208,6 +207,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.qss" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new python lab_practice hah" />

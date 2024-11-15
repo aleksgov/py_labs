@@ -1,0 +1,16 @@
+QPushButton {
+    border-radius: 30px;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+
+QPushButton:checked {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}

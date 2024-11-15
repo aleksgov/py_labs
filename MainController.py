@@ -1,5 +1,6 @@
 from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QMainWindow, QScrollArea, QPushButton, QTabWidget, QWidget, QLabel, QVBoxLayout, QHBoxLayout, QGridLayout
+from PyQt5.QtWidgets import QMainWindow, QScrollArea, QPushButton, QTabWidget, QWidget, QLabel, QVBoxLayout, \
+    QHBoxLayout, QGridLayout, QFrame, QGroupBox, QSizePolicy, QSpacerItem
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
@@ -69,8 +70,8 @@ class MainWindow(QMainWindow):
 
         self.close_other_tabs()
         self.tab_widget.currentChanged.connect(self.on_tab_changed)
-
         self.create_buttons_in_variants_tab()
+        self.create_accordion(self.exampleFirstLabTab)
 
     def close_other_tabs(self):
         num_tabs = self.tab_widget.count()
@@ -170,7 +171,7 @@ class MainWindow(QMainWindow):
         scroll_area.setWidget(scroll_area_widget)
 
         container_widget = QWidget(self.variantsFirstLabTab)
-        container_widget.setStyleSheet("background: transparent;")
+        container_widget.setStyleSheet("background: transparent; border: none;")
         container_widget.setLayout(QVBoxLayout())
         container_widget.layout().addWidget(scroll_area)
         container_widget.resize(1267, 700)
@@ -180,6 +181,56 @@ class MainWindow(QMainWindow):
         self.open_tab(self.taskFirstLabTab, f"Вариант №{index}")
         file_path = "Documentation/FirstLab/FirstLabVariants.html"
         self.load_html_from_file(file_path, self.taskFirstLabTab, index)
+
+    def create_accordion(self, parent):
+        scroll_area = QScrollArea(parent)
+        scroll_area.setWidgetResizable(True)
+        scroll_area.setFixedSize(1190, 600)
+        scroll_area.setStyleSheet("background: transparent; border: none;")
+
+        accordion_widget = QWidget()
+        accordion_layout = QVBoxLayout(accordion_widget)
+
+        accordion_layout.setSpacing(0)
+        for i in range(3):
+            self.create_accordion_item(accordion_layout, f"Вкладка {i + 1}",
+                                       f"Содержимое {i + 1}\n" + "Текст для аккордеона. " * 10)
+
+        scroll_area.setWidget(accordion_widget)
+
+        layout = QVBoxLayout(parent)
+        layout.setContentsMargins(145, 40, 0, 0)
+        layout.addWidget(scroll_area)
+
+    def create_accordion_item(self, layout, title, content):
+        button = QPushButton(title)
+        button.setCheckable(True)
+        accordion_style = load_stylesheet("css_style/accordion.qss")
+        button.setStyleSheet(accordion_style)
+        button.setFixedSize(1150, 120)
+
+        label = QLabel(content)
+        label.setWordWrap(True)
+        label.setVisible(False)
+        label.setFixedSize(1150, 1000)
+        label.setStyleSheet("""background: white; 
+                               padding: 0; margin: 0; 
+                               border-bottom-left-radius: 30px;
+                               border-bottom-right-radius: 30px;
+                            """)
+
+        button.clicked.connect(lambda: self.toggle_accordion(label))
+
+        item_layout = QVBoxLayout()
+        item_layout.addWidget(button)
+        item_layout.addWidget(label)
+        self.spacer = QSpacerItem(10, 50, QSizePolicy.Minimum, QSizePolicy.Minimum)
+        item_layout.addItem(self.spacer)
+
+        layout.addLayout(item_layout)
+
+    def toggle_accordion(self, label):
+        label.setVisible(not label.isVisible())
 
 def load_stylesheet(self):
     with open(self, 'r') as f:
