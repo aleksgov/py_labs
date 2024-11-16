@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="fixing a bug with element scrolling,&#10;minor styling changes">
-      <change afterPath="$PROJECT_DIR$/Documentation/FirstLab/FirstExample.html" afterDir="false" />
+    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="fixing a bug with element scrolling,&#10;styling changes,&#10;add examples html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabTheory.html" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/FirstLab/Theory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/FirstLab/FirstLabVariants.html" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/FirstLab/Variants.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/FirstLab/test.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MainController.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_style/scroll.qss" beforeDir="false" afterPath="$PROJECT_DIR$/css_style/scroll.qss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css_style/accordion.qss" beforeDir="false" afterPath="$PROJECT_DIR$/css_style/accordion.qss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731772085819</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixing a bug with element scrolling,&#10;styling changes,&#10;add examples html">
+      <option name="closed" value="true" />
+      <created>1731788587607</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731788587607</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -268,7 +272,8 @@
     <MESSAGE value="accordion changing" />
     <MESSAGE value="size correct for windows and others tab" />
     <MESSAGE value="fixing a bug with element scrolling,&#10;minor styling changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing a bug with element scrolling,&#10;minor styling changes" />
+    <MESSAGE value="fixing a bug with element scrolling,&#10;styling changes,&#10;add examples html" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing a bug with element scrolling,&#10;styling changes,&#10;add examples html" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

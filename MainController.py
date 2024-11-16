@@ -1,10 +1,10 @@
 import os
 
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QIcon, QPixmap, QTransform
 from PyQt5.QtWidgets import QMainWindow, QScrollArea, QPushButton, QTabWidget, QWidget, QLabel, QVBoxLayout, \
     QHBoxLayout, QGridLayout, QFrame, QGroupBox, QSizePolicy, QSpacerItem
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import Qt, QUrl
+from PyQt5.QtCore import Qt, QUrl, QSize, QPropertyAnimation
 from PyQt5 import uic
 from PyQt5.QtWidgets import QGraphicsDropShadowEffect
 from PyQt5.QtGui import QColor
@@ -189,7 +189,6 @@ class MainWindow(QMainWindow):
         scroll_area = QScrollArea(parent)
         scroll_area.setWidgetResizable(True)
 
-        # Применяем стиль для QScrollArea
         scroll_area.setStyleSheet("""
             QScrollArea {
                 background: transparent;
@@ -237,13 +236,15 @@ class MainWindow(QMainWindow):
         label.setText(label_text)
         label.setAttribute(Qt.WA_TransparentForMouseEvents)
 
+        triangle_icon = QIcon(QPixmap("down_arrow.png"))
+        button.setIcon(triangle_icon)
+        button.setIconSize(QSize(45, 45))
         button_layout = QVBoxLayout()
         button_layout.addWidget(label)
         button.setLayout(button_layout)
 
         webview_container = QWidget()
         webview_container.setFixedSize(container_width, container_height)
-
         webview_container.setStyleSheet("""
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
@@ -260,7 +261,7 @@ class MainWindow(QMainWindow):
         web_container_layout = QVBoxLayout(webview_container)
         web_container_layout.addWidget(web_view)
 
-        button.clicked.connect(lambda: self.toggle_accordion(webview_container))
+        button.clicked.connect(lambda: self.toggle_accordion(webview_container, button))
 
         item_layout = QVBoxLayout()
         item_layout.addWidget(button)
@@ -271,9 +272,15 @@ class MainWindow(QMainWindow):
 
         layout.addLayout(item_layout)
 
-    def toggle_accordion(self, container):
+    def toggle_accordion(self, container, button):
         container.setVisible(not container.isVisible())
 
+        if container.isVisible():
+            triangle_icon = QIcon(QPixmap("up_arrow.png"))
+        else:
+            triangle_icon = QIcon(QPixmap("down_arrow.png"))
+
+        button.setIcon(triangle_icon)
 
 def load_stylesheet(self):
     with open(self, 'r') as f:
