@@ -188,8 +188,8 @@ class MainWindow(QMainWindow):
     def create_accordion(self, parent):
         scroll_area = QScrollArea(parent)
         scroll_area.setWidgetResizable(True)
-        scroll_area.setFixedSize(1190, 600)
         scroll_area.setStyleSheet("background: transparent; border: none;")
+        scroll_area.setFixedSize(1190, 600)
 
         accordion_widget = QWidget()
         accordion_layout = QVBoxLayout(accordion_widget)
@@ -224,26 +224,39 @@ class MainWindow(QMainWindow):
         button_layout.addWidget(label)
         button.setLayout(button_layout)
 
-        web_view = QWebEngineView()
-        web_view.setFixedSize(1150, 1000)
+        webview_container = QWidget()
+        webview_container.setFixedSize(1150, 1000)
 
+        webview_container.setStyleSheet("""
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            overflow: hidden;
+            background-color: white;  
+        """)
+        webview_container.setVisible(False)
+        webview_container.setAttribute(Qt.WA_TransparentForMouseEvents)
+
+        web_view = QWebEngineView(webview_container)
         absolute_path = os.path.abspath(html_file_path)
         web_view.load(QUrl.fromLocalFile(absolute_path))
-        web_view.setVisible(False)
 
-        button.clicked.connect(lambda: self.toggle_accordion(web_view))
+        web_container_layout = QVBoxLayout(webview_container)
+        web_container_layout.addWidget(web_view)
+
+        button.clicked.connect(lambda: self.toggle_accordion(webview_container))
 
         item_layout = QVBoxLayout()
         item_layout.addWidget(button)
-        item_layout.addWidget(web_view)
+        item_layout.addWidget(webview_container)
 
         self.spacer = QSpacerItem(10, 50, QSizePolicy.Minimum, QSizePolicy.Minimum)
         item_layout.addItem(self.spacer)
 
         layout.addLayout(item_layout)
 
-    def toggle_accordion(self, label):
-        label.setVisible(not label.isVisible())
+    def toggle_accordion(self, container):
+        container.setVisible(not container.isVisible())
+
 
 def load_stylesheet(self):
     with open(self, 'r') as f:
