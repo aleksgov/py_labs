@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
             self.taskFirstLabTab: QWebEngineView(self.taskFirstLabTab)
         }
 
-        self.load_html_from_file("Documentation/FirstLab/FirstLabTheory.html", self.theoryFirstLabTab)
+        self.load_html_from_file("Documentation/FirstLab/Theory.html", self.theoryFirstLabTab)
 
 
         for web_view in self.web_views.values():
@@ -119,7 +119,7 @@ class MainWindow(QMainWindow):
     def create_buttons_in_variants_tab(self):
         scroll_area = QScrollArea(self.variantsFirstLabTab)
         scroll_area.setWidgetResizable(True)
-        qss = load_stylesheet("css_style\\scroll.qss")
+        qss = load_stylesheet("css_style/scroll.qss")
         scroll_area.setStyleSheet(qss)
         scroll_area_widget = QWidget()
         layout = QGridLayout(scroll_area_widget)
@@ -182,30 +182,47 @@ class MainWindow(QMainWindow):
 
     def button_action(self, index):
         self.open_tab(self.taskFirstLabTab, f"Вариант №{index}")
-        file_path = "Documentation/FirstLab/FirstLabVariants.html"
+        file_path = "Documentation/FirstLab/Variants.html"
         self.load_html_from_file(file_path, self.taskFirstLabTab, index)
 
     def create_accordion(self, parent):
         scroll_area = QScrollArea(parent)
         scroll_area.setWidgetResizable(True)
-        scroll_area.setStyleSheet("background: transparent; border: none;")
+
+        # Применяем стиль для QScrollArea
+        scroll_area.setStyleSheet("""
+            QScrollArea {
+                background: transparent;
+                border: none;
+            }
+            QScrollArea QWidget {
+                background: transparent;
+            }
+        """)
+
+        vertical_scrollbar = scroll_area.verticalScrollBar()
+        scroll_style = load_stylesheet("css_style/scroll.qss")
+        vertical_scrollbar.setStyleSheet(scroll_style)
         scroll_area.setFixedSize(1190, 600)
 
         accordion_widget = QWidget()
         accordion_layout = QVBoxLayout(accordion_widget)
-
         accordion_layout.setSpacing(0)
-        self.create_accordion_item(accordion_layout,"1-ый", "Определение параметров и постановка задачи", "Documentation/FirstLab/test.html")
-        self.create_accordion_item(accordion_layout,"2-ой", "Создание модели СМО на GPSS", "Documentation/FirstLab/test.html")
-        self.create_accordion_item(accordion_layout,"3-ий", "Анализ результатов моделирования", "Documentation/FirstLab/test.html")
+
+        self.create_accordion_item(accordion_layout, "1-ый", "Определение параметров и постановка задачи",
+                                   "Documentation/FirstLab/FirstExample.html", container_height=675)
+        self.create_accordion_item(accordion_layout, "2-ой", "Создание модели СМО на GPSS",
+                                   "Documentation/FirstLab/SecondExample.html", container_height=3010)
+        self.create_accordion_item(accordion_layout, "3-ий", "Анализ результатов моделирования",
+                                   "Documentation/FirstLab/ThirdExample.html", container_height=1610)
 
         scroll_area.setWidget(accordion_widget)
-
         layout = QVBoxLayout(parent)
         layout.setContentsMargins(135, 40, 0, 0)
         layout.addWidget(scroll_area)
 
-    def create_accordion_item(self, layout, step, step_description, html_file_path):
+    def create_accordion_item(self, layout, step, step_description, html_file_path, container_width=1150,
+                              container_height=1000):
         button = QPushButton()
         button.setCheckable(True)
         accordion_style = load_stylesheet("css_style/accordion.qss")
@@ -225,7 +242,7 @@ class MainWindow(QMainWindow):
         button.setLayout(button_layout)
 
         webview_container = QWidget()
-        webview_container.setFixedSize(1150, 1000)
+        webview_container.setFixedSize(container_width, container_height)
 
         webview_container.setStyleSheet("""
             border-bottom-left-radius: 20px;

@@ -5,7 +5,7 @@ QScrollArea {
 
 QScrollArea QScrollBar:vertical {
     background-color: lightgray;
-    width: 0.6vw;
+    width: 6px;
     border: 0px;
     border-radius: 3px;
 }
