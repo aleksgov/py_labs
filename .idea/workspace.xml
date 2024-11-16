@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="add 6-19 task for variants">
-      <change afterPath="$PROJECT_DIR$/css_style/accordion.qss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/lab_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lab_practice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="296a37a1-c59d-4af0-aed4-0ef22e5ebb2e" name="Changes" comment="example bars">
+      <change afterPath="$PROJECT_DIR$/Documentation/FirstLab/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainController.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface.ui" beforeDir="false" afterPath="$PROJECT_DIR$/interface.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731495859320</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="example bars">
+      <option name="closed" value="true" />
+      <created>1731702804690</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731702804691</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -231,7 +236,8 @@
     <MESSAGE value="change style scroll-bar" />
     <MESSAGE value="add radius for scroll-bar" />
     <MESSAGE value="variants.html support" />
-    <option name="LAST_COMMIT_MESSAGE" value="variants.html support" />
+    <MESSAGE value="example bars" />
+    <option name="LAST_COMMIT_MESSAGE" value="example bars" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

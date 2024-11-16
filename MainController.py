@@ -1,8 +1,10 @@
+import os
+
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QMainWindow, QScrollArea, QPushButton, QTabWidget, QWidget, QLabel, QVBoxLayout, \
     QHBoxLayout, QGridLayout, QFrame, QGroupBox, QSizePolicy, QSpacerItem
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QUrl
 from PyQt5 import uic
 from PyQt5.QtWidgets import QGraphicsDropShadowEffect
 from PyQt5.QtGui import QColor
@@ -31,6 +33,7 @@ class MainWindow(QMainWindow):
         }
 
         self.load_html_from_file("Documentation/FirstLab/FirstLabTheory.html", self.theoryFirstLabTab)
+
 
         for web_view in self.web_views.values():
             web_view.setGeometry(210, 110, 1100, 650)
@@ -192,9 +195,9 @@ class MainWindow(QMainWindow):
         accordion_layout = QVBoxLayout(accordion_widget)
 
         accordion_layout.setSpacing(0)
-        for i in range(3):
-            self.create_accordion_item(accordion_layout, f"Вкладка {i + 1}",
-                                       f"Содержимое {i + 1}\n" + "Текст для аккордеона. " * 10)
+        self.create_accordion_item(accordion_layout,"1-ый", "Определение параметров и постановка задачи", "Documentation/FirstLab/test.html")
+        self.create_accordion_item(accordion_layout,"2-ой", "Создание модели СМО на GPSS", "Documentation/FirstLab/test.html")
+        self.create_accordion_item(accordion_layout,"3-ий", "Анализ результатов моделирования", "Documentation/FirstLab/test.html")
 
         scroll_area.setWidget(accordion_widget)
 
@@ -202,28 +205,38 @@ class MainWindow(QMainWindow):
         layout.setContentsMargins(145, 40, 0, 0)
         layout.addWidget(scroll_area)
 
-    def create_accordion_item(self, layout, title, content):
-        button = QPushButton(title)
+    def create_accordion_item(self, layout, step, step_description, html_file_path):
+        button = QPushButton()
         button.setCheckable(True)
         accordion_style = load_stylesheet("css_style/accordion.qss")
         button.setStyleSheet(accordion_style)
         button.setFixedSize(1150, 120)
 
-        label = QLabel(content)
-        label.setWordWrap(True)
-        label.setVisible(False)
-        label.setFixedSize(1150, 1000)
-        label.setStyleSheet("""background: white; 
-                               padding: 0; margin: 0; 
-                               border-bottom-left-radius: 30px;
-                               border-bottom-right-radius: 30px;
-                            """)
+        label = QLabel()
+        label_text = f"""
+           <span style="font-family: 'Century Gothic'; font-size: 40px; font-weight: bold; padding: 10px; display: inline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{step} шаг.</span>
+           <span style="font-family: 'Century Gothic'; font-size: 30px; display: inline;">&nbsp;&nbsp;{step_description}</span>
+           """
+        label.setText(label_text)
+        label.setAttribute(Qt.WA_TransparentForMouseEvents)
 
-        button.clicked.connect(lambda: self.toggle_accordion(label))
+        button_layout = QVBoxLayout()
+        button_layout.addWidget(label)
+        button.setLayout(button_layout)
+
+        web_view = QWebEngineView()
+        web_view.setFixedSize(1150, 1000)
+
+        absolute_path = os.path.abspath(html_file_path)
+        web_view.load(QUrl.fromLocalFile(absolute_path))
+        web_view.setVisible(False)
+
+        button.clicked.connect(lambda: self.toggle_accordion(web_view))
 
         item_layout = QVBoxLayout()
         item_layout.addWidget(button)
-        item_layout.addWidget(label)
+        item_layout.addWidget(web_view)
+
         self.spacer = QSpacerItem(10, 50, QSizePolicy.Minimum, QSizePolicy.Minimum)
         item_layout.addItem(self.spacer)
 
