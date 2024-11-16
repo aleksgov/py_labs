@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1449</width>
+    <width>1440</width>
     <height>810</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1440</width>
+    <height>810</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,11 +23,29 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="maximumSize">
+    <size>
+     <width>1440</width>
+     <height>810</height>
+    </size>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="enabled">
        <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>1440</width>
+        <height>810</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>1440</width>
+        <height>810</height>
+       </size>
       </property>
       <property name="font">
        <font>
@@ -53,6 +77,18 @@ QTabBar::tab:!selected {
        <number>0</number>
       </property>
       <widget class="QWidget" name="MainTab">
+       <property name="minimumSize">
+        <size>
+         <width>1440</width>
+         <height>810</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>1440</width>
+         <height>810</height>
+        </size>
+       </property>
        <property name="styleSheet">
         <string notr="true"/>
        </property>

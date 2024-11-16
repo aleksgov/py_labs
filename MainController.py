@@ -202,7 +202,7 @@ class MainWindow(QMainWindow):
         scroll_area.setWidget(accordion_widget)
 
         layout = QVBoxLayout(parent)
-        layout.setContentsMargins(145, 40, 0, 0)
+        layout.setContentsMargins(135, 40, 0, 0)
         layout.addWidget(scroll_area)
 
     def create_accordion_item(self, layout, step, step_description, html_file_path):
