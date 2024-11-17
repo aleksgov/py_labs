@@ -1,6 +1,6 @@
+import os
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QUrl
 from MainWindow import MainWindow
 from controllers.html_view_types import HtmlViewTypes
 
@@ -20,15 +20,20 @@ class WebViewManager:
         for button, (html, type) in self.html_buttons.items():
             button.clicked.connect(lambda _, _html=html, _type=type: self.load_html_from_file(_html, _type))
 
-    def load_html_from_file(self, file_path : str, type : HtmlViewTypes, variant_index : int = -1):
-        with open(file_path, 'r', encoding='utf-8') as file:
-            html_content = file.read()
+    def load_html_from_file(self, file_path: str, type: HtmlViewTypes, variant_index: int = -1):
+        absolute_path = os.path.abspath(file_path)
 
         if variant_index > -1:
+            with open(absolute_path, 'r', encoding='utf-8') as file:
+                html_content = file.read()
+
             html_content = html_content.replace('<body onload="showVariant(1)">',
                                                 f'<body onload="showVariant({variant_index})">')
 
-        self.web_view.setHtml(html_content)
+            self.web_view.setHtml(html_content)
+        else:
+            self.web_view.load(QUrl.fromLocalFile(absolute_path))
+
         self.set_transparent_background()
         self.adjust_web_view_style(type)
 
