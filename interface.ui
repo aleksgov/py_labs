@@ -47,12 +47,6 @@
                                 <height>810</height>
                             </size>
                         </property>
-                        <property name="font">
-                            <font>
-                                <family>Century Gothic</family>
-                                <pointsize>14</pointsize>
-                            </font>
-                        </property>
                         <property name="styleSheet">
                             <string notr="true">QTabWidget::pane {
     border: none;
@@ -71,6 +65,11 @@ QTabBar::tab:selected {
 }
 QTabBar::tab:!selected {
 	 color: black;
+ }
+ 
+ QTabWidget{
+    font-size: 24px;
+    font-family: 'Century Gothic';         
  }</string>
                         </property>
                         <property name="currentIndex">
@@ -196,7 +195,7 @@ QPushButton:pressed {
                                             <string notr="true">background-color: transparent;</string>
                                         </property>
                                         <property name="text">
-                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:67px; font-family: 'Century Gothic'&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                         </property>
                                     </widget>
                                     <widget class="QLabel" name="label4">
@@ -213,10 +212,10 @@ QPushButton:pressed {
     &lt;head/&gt;
     &lt;body&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
         &lt;/p&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
         &lt;/p&gt;
     &lt;/body&gt;
 &lt;/html&gt;</string>
@@ -304,7 +303,7 @@ QPushButton:pressed {
                                             <string notr="true">background-color: transparent;</string>
                                         </property>
                                         <property name="text">
-                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:67px; font-family: 'Century Gothic'&quot;&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                         </property>
                                     </widget>
                                     <widget class="QLabel" name="label6">
@@ -321,10 +320,10 @@ QPushButton:pressed {
     &lt;head/&gt;
     &lt;body&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
         &lt;/p&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
         &lt;/p&gt;
     &lt;/body&gt;
 &lt;/html&gt;</string>
@@ -412,7 +411,7 @@ QPushButton:pressed {
                                             <string notr="true">background-color: transparent;</string>
                                         </property>
                                         <property name="text">
-                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:67px; font-family: 'Century Gothic'&quot;&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                         </property>
                                     </widget>
                                     <widget class="QLabel" name="label8">
@@ -429,10 +428,10 @@ QPushButton:pressed {
     &lt;head/&gt;
     &lt;body&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
         &lt;/p&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
         &lt;/p&gt;
     &lt;/body&gt;
 &lt;/html&gt;</string>
@@ -520,7 +519,7 @@ QPushButton:pressed {
                                             <string notr="true">background-color: transparent;</string>
                                         </property>
                                         <property name="text">
-                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:50pt; font-family: 'Century Gothic'&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:67px; font-family: 'Century Gothic'&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                         </property>
                                     </widget>
                                     <widget class="QLabel" name="label2">
@@ -537,10 +536,10 @@ QPushButton:pressed {
     &lt;head/&gt;
     &lt;body&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;Лабораторная&lt;/span&gt;
         &lt;/p&gt;
         &lt;p style=&quot;line-height: 90%; margin: 0;&quot;&gt;
-            &lt;span style=&quot;font-size:18pt; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
+            &lt;span style=&quot;font-size:24px; font-family: 'Century Gothic';&quot;&gt;работа&lt;/span&gt;
         &lt;/p&gt;
     &lt;/body&gt;
 &lt;/html&gt;</string>
@@ -563,9 +562,9 @@ QPushButton:pressed {
                                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.15094pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:24pt;&quot;&gt;Лабораторный практикум&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:24pt;&quot;&gt;по предмету “Управление данными”&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:11px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:32px;&quot;&gt;Лабораторный практикум&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:32px;&quot;&gt;по предмету “Управление данными”&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                     </property>
                                 </widget>
                             </widget>
@@ -606,20 +605,15 @@ border-radius: 60px;
                                             <height>91</height>
                                         </rect>
                                     </property>
-                                    <property name="font">
-                                        <font>
-                                            <pointsize>48</pointsize>
-                                        </font>
-                                    </property>
                                     <property name="styleSheet">
-                                        <string notr="true">background-color: transparent;</string>
+                                        <string notr="true">background-color: transparent; font-size: 64px; font-family: 'Century Gothic';</string>
                                     </property>
                                     <property name="text">
                                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:48pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:30pt;&quot;&gt;Лабораторная работа №1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:64px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:40px;&quot;&gt;Лабораторная работа №1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                     </property>
                                 </widget>
                                 <widget class="QPushButton" name="TheoryFirstLabButton">

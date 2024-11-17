@@ -31,10 +31,10 @@ class VariantsManager:
         self.buttons.append(btn)
 
         label_number = QLabel(f"{index + 1}")
-        label_number.setFont(QFont("Century Gothic", 40))
+        label_number.setStyleSheet("font-size: 53px; font-family: 'Century Gothic';")
 
         label_text = QLabel("Вариант")
-        label_text.setFont(QFont("Century Gothic", 16))
+        label_text.setStyleSheet("font-size: 21px; font-family: 'Century Gothic';")
 
         if index + 1 >= 10:
             label_number.setContentsMargins(0, 0, 10, 0)
