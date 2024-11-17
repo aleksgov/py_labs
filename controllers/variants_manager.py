@@ -8,7 +8,7 @@ class VariantsManager:
         self.taskFirstLabTab = taskFirstLabTab
         self.open_tab = open_tab
         self.load_html_from_file = load_html_from_file
-        self.shadow_effect_manager = shadow_effect_manager  # Новый параметр для shadow_manager
+        self.shadow_effect_manager = shadow_effect_manager
 
     def create_buttons_in_variants_tab(self):
         scroll_area = QScrollArea(self.variantsFirstLabTab)
@@ -55,7 +55,6 @@ class VariantsManager:
             """)
             btn.clicked.connect(lambda checked, index=i + 1: self.button_action(index))
 
-            # Применяем тень с помощью ShadowEffectManager
             self.shadow_effect_manager.apply_shadow_effects_to_button(btn)
 
             row = i // 5

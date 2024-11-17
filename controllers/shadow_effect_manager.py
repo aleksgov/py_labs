@@ -16,7 +16,7 @@ class ShadowEffectManager:
         for button in shadow_buttons:
             self.apply_shadow_effects_to_button(button)
 
-    # Применение тени к отдельной кнопке
+    # Применение тени к кнопкам вариантов
     def apply_shadow_effects_to_button(self, button):
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(10)
