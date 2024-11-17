@@ -151,12 +151,6 @@ border-radius: 60px;
                                                 <height>0</height>
                                             </size>
                                         </property>
-                                        <property name="font">
-                                            <font>
-                                                <family>Century Gothic</family>
-
-                                            </font>
-                                        </property>
                                         <property name="cursor">
                                             <cursorShape>PointingHandCursor</cursorShape>
                                         </property>
@@ -264,12 +258,6 @@ QPushButton:pressed {
                                                 <width>278</width>
                                                 <height>0</height>
                                             </size>
-                                        </property>
-                                        <property name="font">
-                                            <font>
-                                                <family>Century Gothic</family>
-
-                                            </font>
                                         </property>
                                         <property name="cursor">
                                             <cursorShape>PointingHandCursor</cursorShape>
@@ -379,12 +367,6 @@ QPushButton:pressed {
                                                 <height>0</height>
                                             </size>
                                         </property>
-                                        <property name="font">
-                                            <font>
-                                                <family>Century Gothic</family>
-
-                                            </font>
-                                        </property>
                                         <property name="cursor">
                                             <cursorShape>PointingHandCursor</cursorShape>
                                         </property>
@@ -492,12 +474,6 @@ QPushButton:pressed {
                                                 <width>278</width>
                                                 <height>0</height>
                                             </size>
-                                        </property>
-                                        <property name="font">
-                                            <font>
-                                                <family>Century Gothic</family>
-
-                                            </font>
                                         </property>
                                         <property name="cursor">
                                             <cursorShape>PointingHandCursor</cursorShape>
@@ -621,7 +597,7 @@ border-radius: 60px;
                                 <property name="frameShadow">
                                     <enum>QFrame::Raised</enum>
                                 </property>
-                                <widget class="QTextBrowser" name="textBrowser_4">
+                                <widget class="QLabel" name="label10">
                                     <property name="geometry">
                                         <rect>
                                             <x>0</x>
@@ -636,11 +612,9 @@ border-radius: 60px;
                                         </font>
                                     </property>
                                     <property name="styleSheet">
-                                        <string notr="true">QTextBrowser {
-    background-color: transparent;
-}</string>
+                                        <string notr="true">background-color: transparent;</string>
                                     </property>
-                                    <property name="html">
+                                    <property name="text">
                                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -662,12 +636,6 @@ p, li { white-space: pre-wrap; }
                                             <width>278</width>
                                             <height>0</height>
                                         </size>
-                                    </property>
-                                    <property name="font">
-                                        <font>
-                                            <family>Century Gothic</family>
-
-                                        </font>
                                     </property>
                                     <property name="cursor">
                                         <cursorShape>PointingHandCursor</cursorShape>
@@ -710,12 +678,6 @@ QPushButton:pressed {
                                             <height>0</height>
                                         </size>
                                     </property>
-                                    <property name="font">
-                                        <font>
-                                            <family>Century Gothic</family>
-
-                                        </font>
-                                    </property>
                                     <property name="cursor">
                                         <cursorShape>PointingHandCursor</cursorShape>
                                     </property>
@@ -756,12 +718,6 @@ QPushButton:pressed {
                                             <width>278</width>
                                             <height>0</height>
                                         </size>
-                                    </property>
-                                    <property name="font">
-                                        <font>
-                                            <family>Century Gothic</family>
-
-                                        </font>
                                     </property>
                                     <property name="cursor">
                                         <cursorShape>PointingHandCursor</cursorShape>
@@ -830,28 +786,17 @@ QPushButton:pressed {
                             <attribute name="title">
                                 <string>Задачи</string>
                             </attribute>
-                        </widget>
-                        <widget class="QWidget" name="TaskFirstLabTab">
-                            <attribute name="title">
-                                <string>Вариант №</string>
-                            </attribute>
-                            <widget class="QFrame" name="TaskFrame">
+                            <widget class="QFrame" name="TasksFrame">
                                 <property name="geometry">
                                     <rect>
-                                        <x>144</x>
-                                        <y>85</y>
-                                        <width>1152</width>
-                                        <height>850</height>
+                                        <x>87</x>
+                                        <y>60</y>
+                                        <width>1267</width>
+                                        <height>700</height>
                                     </rect>
                                 </property>
                                 <property name="styleSheet">
-                                    <string notr="true">QFrame {
-       border-top-left-radius: 60px;
-       border-top-right-radius: 60px;
-       border-bottom-left-radius: 0px;
-       border-bottom-right-radius: 0px;
-       background-color: white;
-}</string>
+                                    <string notr="true">background: transparent; border: none;</string>
                                 </property>
                                 <property name="frameShape">
                                     <enum>QFrame::StyledPanel</enum>

@@ -4,11 +4,12 @@ from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import QUrl, Qt, QSize
 import os
 from controllers.stylesheet_loader import load_stylesheet
+from MainWindow import MainWindow
 
 
 class AccordionManager:
-    def __init__(self, main_window):
-        self.main_window = main_window
+    def __init__(self, main_window : MainWindow):
+        self.create_accordion(main_window.exampleFirstLabTab)
 
     def create_accordion(self, parent):
         # Создание области прокрутки
