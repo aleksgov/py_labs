@@ -83,7 +83,6 @@ class AccordionManager:
         webview_container.setStyleSheet("""
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
-            overflow: hidden;
             background-color: white;  
         """)
         webview_container.setVisible(False)
