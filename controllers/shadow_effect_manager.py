@@ -1,9 +1,11 @@
 from PyQt5.QtWidgets import QGraphicsDropShadowEffect
 from PyQt5.QtGui import QColor
+from MainWindow import MainWindow
 
 class ShadowEffectManager:
-    def __init__(self, main_window):
+    def __init__(self, main_window : MainWindow):
         self.main_window = main_window
+        self.apply_shadow_effects()
 
     # Настройка теней для элементов
     def apply_shadow_effects(self):
