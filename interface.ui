@@ -578,7 +578,7 @@ p, li { white-space: pre-wrap; }
        <widget class="QWidget" name="verticalLayoutWidget">
         <property name="geometry">
          <rect>
-          <x>1350</x>
+          <x>1360</x>
           <y>20</y>
           <width>61</width>
           <height>401</height>
