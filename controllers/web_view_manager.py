@@ -1,6 +1,7 @@
-import os
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import Qt, QUrl
+import os
+
 from MainWindow import MainWindow
 from controllers.html_view_types import HtmlViewTypes
 

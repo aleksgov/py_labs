@@ -19,9 +19,6 @@
         <property name="windowTitle">
             <string>MainWindow</string>
         </property>
-        <property name="styleSheet">
-            <string notr="true"/>
-        </property>
         <widget class="QWidget" name="centralwidget">
             <property name="maximumSize">
                 <size>
@@ -50,11 +47,6 @@
                         <property name="styleSheet">
                             <string notr="true">QTabWidget::pane {
     border: none;
-    background: qlineargradient(
-        x1: 0, y1: 0, x2: 1, y2: 1,
-        stop: 0 rgba(255, 144, 0, 77),
-        stop: 1 rgba(0, 102, 174, 77)
-    );
 }
 QTabBar::tab {
 	background: transparent;
@@ -66,7 +58,6 @@ QTabBar::tab:selected {
 QTabBar::tab:!selected {
 	 color: black;
  }
- 
  QTabWidget{
     font-size: 24px;
     font-family: 'Century Gothic';         
@@ -567,6 +558,17 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Century Gothic'; font-size:32px;&quot;&gt;по предмету “Управление данными”&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                     </property>
                                 </widget>
+                            </widget>
+                            <widget class="QWidget" name="verticalLayoutWidget">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>1319</x>
+                                        <y>20</y>
+                                        <width>91</width>
+                                        <height>401</height>
+                                    </rect>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout"/>
                             </widget>
                         </widget>
                         <widget class="QWidget" name="FirstLabTab">

@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QScrollArea, QVBoxLayout, QPushButton, QLabel, QWidg
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import QUrl, Qt, QSize
 import os
+
 from controllers.stylesheet_loader import load_stylesheet
 from MainWindow import MainWindow
 

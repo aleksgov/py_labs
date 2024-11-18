@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QGraphicsDropShadowEffect
 from PyQt5.QtGui import QColor
+
 from MainWindow import MainWindow
 
 class ShadowEffectManager:

@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QWidget
+
 from MainWindow import MainWindow
 
 class TabManager:

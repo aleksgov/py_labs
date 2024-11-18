@@ -1,10 +1,11 @@
-from PyQt5.QtWidgets import QScrollArea, QPushButton, QLabel, QVBoxLayout, QGridLayout, QHBoxLayout, QWidget, QFrame
-from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import QScrollArea, QPushButton, QLabel, QGridLayout, QHBoxLayout, QWidget
+from PyQt5.QtCore import Qt
+
 from controllers.stylesheet_loader import load_stylesheet
 
 class VariantsManager:
     def __init__(self):
-        self.buttons = []
+        self.buttons : list[QPushButton] = []
         self.create_buttons_in_variants_tab()
 
     def create_buttons_in_variants_tab(self):
@@ -52,15 +53,17 @@ class VariantsManager:
         h_layout.setSpacing(0)
 
         btn.setLayout(h_layout)
-        btn.setFixedSize(200, 90)
+        btn.setFixedSize(199, 90)
         btn.setStyleSheet("""
             background-color: white;
             border-radius: 30px;
         """)
 
+        btn.setFocusPolicy(Qt.NoFocus)
+
         return btn
 
-    def set_buttons_count(self, count):
+    def set_buttons_count(self, count : int):
         for i in range(len(self.buttons)):
             if count <= i:
                 self.buttons[i].setHidden(True)

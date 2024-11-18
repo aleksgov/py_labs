@@ -19,8 +19,15 @@ class MainWindow(QMainWindow):
         self.exampleFirstLabTab : QWidget = self.findChild(QWidget, 'ExampleFirstLabTab')
         self.variantsFirstLabTab : QWidget = self.findChild(QWidget, 'VariantsFirstLabTab')
         self.tasksFrame : QFrame = self.findChild(QFrame, "TasksFrame")
+        self.colorButtonsLayout : QVBoxLayout = self.findChild(QVBoxLayout, "verticalLayout")
 
         self.tasksFrame.setLayout(QVBoxLayout())
+
+        self.tab_widget.setFocusPolicy(Qt.NoFocus)
+
+        buttons = self.findChildren(QPushButton, QRegExp(".+Button"))
+        for button in buttons:
+            button.setFocusPolicy(Qt.NoFocus)
 
         labels = self.findChildren(QLabel, QRegExp("^label.+"))
         for label in labels:

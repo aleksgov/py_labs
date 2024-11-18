@@ -1,3 +1,3 @@
-def load_stylesheet(file_path):
+def load_stylesheet(file_path : str) -> str:
     with open(file_path, 'r') as file:
         return file.read()
