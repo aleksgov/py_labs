@@ -1,12 +1,17 @@
 from PyQt5.QtCore import Qt, QRegExp
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QTabWidget, QWidget, QLabel, QFrame, QVBoxLayout
 from PyQt5 import uic
+from PyQt5.QtGui import QFontDatabase
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('interface.ui', self)
         self.setMinimumSize(1440, 810)
+
+        QFontDatabase.addApplicationFont("documentation/assets/centurygothic.ttf")
+        QFontDatabase.addApplicationFont("documentation/assets/centurygothic_bold.ttf")
 
         # Кнопки и вкладки из interface.ui
         self.firstLabButton : QPushButton = self.findChild(QPushButton, 'FirstLabButton')

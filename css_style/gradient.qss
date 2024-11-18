@@ -1,8 +1,0 @@
-QTabWidget::pane {
-    border: 1px solid #ccc;
-    background: qlineargradient(
-        x1: 0, y1: 0, x2: 1, y2: 1,
-        stop: 0 rgba(255, 144, 0, 77),
-        stop: 1 rgba(0, 102, 174, 77)
-    );
-}

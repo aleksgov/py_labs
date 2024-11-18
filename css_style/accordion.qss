@@ -16,3 +16,7 @@ QPushButton:checked {
     padding-right: 40px;
     margin: 0;
 }
+
+QPushButton:focus {
+    outline: none;
+}
