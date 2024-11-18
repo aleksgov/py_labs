@@ -1,7 +1,7 @@
 QTabWidget::pane {
     background: qlineargradient(
         x1: 0, y1: 0, x2: 1, y2: 1,
-        stop: 0.19 rgba(144, 255, 0, 0.3),
-        stop: 0.81 rgba(174, 102, 0, 0.3)
+        stop: 0.19 rgba(255, 108, 0, 0.3),
+        stop: 0.81 rgba(0, 158, 142, 0.3)
     );
 }

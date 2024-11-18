@@ -10,8 +10,9 @@ class BackgroundController:
         self.main_window = main_window
         self.color_buttons : dict[ColoredCircleButton, str] = {
             ColoredCircleButton(QColor(255, 144, 0, 76), QColor(0, 102, 174, 76), 52, ""): "css_style/window_bg_colors/blue_yellow.qss",
-            ColoredCircleButton(QColor(144, 255, 0, 76), QColor(174, 102, 0, 76), 52, ""): "css_style/window_bg_colors/green_orange.qss",
-            ColoredCircleButton(QColor(144, 255, 0, 76), QColor(145, 24, 237, 76), 52, ""): "css_style/window_bg_colors/green_purple.qss",
+            ColoredCircleButton(QColor(255, 108, 0, 76), QColor(0, 158, 142, 76), 52, ""): "css_style/window_bg_colors/green_orange.qss",
+            ColoredCircleButton(QColor(166, 136, 0, 76), QColor(29, 7, 114, 76), 52, ""): "css_style/window_bg_colors/green_purple.qss",
+            ColoredCircleButton(QColor(180, 13, 0, 76), QColor(0, 102, 174, 76), 52, ""): "css_style/window_bg_colors/red_blue.qss",
         }
 
         for button, path in self.color_buttons.items():
@@ -20,7 +21,7 @@ class BackgroundController:
 
         self.displayed_button = None
 
-        self.main_window.colorButtonsLayout.parentWidget().setStyleSheet("background: white; border-radius: 26px;")
+        self.main_window.colorButtonsLayout.parentWidget().setStyleSheet("background: white; border-radius: 36px;")
         self.main_window.colorButtonsLayout.parentWidget().setFixedSize(QSize(72, 132))
 
         list(self.color_buttons.keys())[0].click()
@@ -32,13 +33,13 @@ class BackgroundController:
             
             self.main_window.setStyleSheet(load_stylesheet(path))
 
-            self.main_window.colorButtonsLayout.parentWidget().setStyleSheet("background: rgba(255, 255, 255, 0.3); border-radius: 26px;")
+            self.main_window.colorButtonsLayout.parentWidget().setStyleSheet("background: rgba(255, 255, 255, 0.3); border-radius: 36px;")
             self.main_window.colorButtonsLayout.parentWidget().setFixedSize(QSize(72, 72))
         else:
             self.show_all_buttons()
         
     def show_all_buttons(self):
-        self.main_window.colorButtonsLayout.parentWidget().setStyleSheet("background: white; border-radius: 26px;")
+        self.main_window.colorButtonsLayout.parentWidget().setStyleSheet("background: white; border-radius: 36px;")
         self.main_window.colorButtonsLayout.parentWidget().setFixedSize(QSize(72, self.color_buttons.__len__() * 62 + 10))
 
         for button in self.color_buttons.keys():
