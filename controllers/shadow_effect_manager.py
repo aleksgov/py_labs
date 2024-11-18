@@ -10,7 +10,10 @@ class ShadowEffectManager:
     # Настройка теней для элементов
     def apply_shadow_effects(self):
         shadow_buttons = [
-            self.main_window.firstLabButton,
+            self.main_window.FirstLabWidget,
+            self.main_window.FourthLabWidget,
+            self.main_window.SecondLabWidget,
+            self.main_window.ThirdLabWidget,
             self.main_window.theoryFirstLabButton,
             self.main_window.exampleFirstLabButton,
             self.main_window.variantsFirstLabButton
