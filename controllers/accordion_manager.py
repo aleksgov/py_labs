@@ -57,6 +57,7 @@ class AccordionManager:
                               container_height=1000):
         # Кнопки аккордеона
         button = QPushButton()
+        button.setFocusPolicy(Qt.NoFocus)
         button.setCheckable(True)
         accordion_style = load_stylesheet("css_style/accordion.qss")
         button.setStyleSheet(accordion_style)
