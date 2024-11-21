@@ -12,7 +12,7 @@ class AccordionManager:
     def __init__(self, main_window : MainWindow):
         self.create_accordion(main_window.exampleFirstLabTab)
 
-    def create_accordion(self, parent):
+    def create_accordion(self, parent : QWidget):
         # Создание области прокрутки
         scroll_area = QScrollArea(parent)
         scroll_area.setWidgetResizable(True)
@@ -27,23 +27,22 @@ class AccordionManager:
         """)
 
         vertical_scrollbar = scroll_area.verticalScrollBar()
-        scroll_style = load_stylesheet("css_style/scroll.qss")
-        vertical_scrollbar.setStyleSheet(scroll_style)
+        vertical_scrollbar.setStyleSheet(load_stylesheet("css_style/scroll.qss"))
 
         scroll_area.setFixedSize(1190, 600)
 
         # Основной виджет аккордеона
         accordion_widget = QWidget()
-        accordion_layout = QVBoxLayout(accordion_widget)
-        accordion_layout.setSpacing(0)
+        self.accordion_layout = QVBoxLayout(accordion_widget)
+        self.accordion_layout.setSpacing(0)
 
         # Создание контейнеров (элементов) для html
-        self.create_accordion_item(accordion_layout, "1-ый", "Определение параметров и постановка задачи",
-                                   "documentation/FirstLab/FirstExample.html", container_height=675)
-        self.create_accordion_item(accordion_layout, "2-ой", "Создание модели СМО на GPSS",
-                                   "documentation/FirstLab/SecondExample.html", container_height=3010)
-        self.create_accordion_item(accordion_layout, "3-ий", "Анализ результатов моделирования",
-                                   "documentation/FirstLab/ThirdExample.html", container_height=1610)
+        self.create_accordion_item("1-ый", "Определение параметров и постановка задачи",
+                                   "documentation/FirstLab/FirstExample.html")
+        self.create_accordion_item("2-ой", "Создание модели СМО на GPSS",
+                                   "documentation/FirstLab/SecondExample.html")
+        self.create_accordion_item("3-ий", "Анализ результатов моделирования",
+                                   "documentation/FirstLab/ThirdExample.html")
 
         # Установка прокрутки для аккордеона
         scroll_area.setWidget(accordion_widget)
@@ -53,7 +52,7 @@ class AccordionManager:
         layout.setContentsMargins(135, 40, 0, 0)
         layout.addWidget(scroll_area)
 
-    def create_accordion_item(self, layout, step, step_description, html_file_path, container_width=1150,
+    def create_accordion_item(self, step, step_description, html_file_path, container_width=1150,
                               container_height=1000):
         # Кнопки аккордеона
         button = QPushButton()
@@ -64,20 +63,19 @@ class AccordionManager:
         button.setFixedSize(1150, 120)
 
         # Настройка заголовка у кнопок
-        label = QLabel()
         label_text = f"""
            <span style="font-family: 'Century Gothic'; font-size: 40px; font-weight: bold; padding: 10px; display: inline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{step} шаг.</span>
            <span style="font-family: 'Century Gothic'; font-size: 30px; display: inline;">&nbsp;&nbsp;{step_description}</span>
            """
-        label.setText(label_text)
-        label.setAttribute(Qt.WA_TransparentForMouseEvents)
+        button_label = QLabel(label_text)
+        button_label.setAttribute(Qt.WA_TransparentForMouseEvents)
 
         triangle_icon = QIcon(QPixmap("documentation/assets/down_arrow.png"))
         button.setIcon(triangle_icon)
         button.setIconSize(QSize(45, 45))
 
         button_layout = QVBoxLayout()
-        button_layout.addWidget(label)
+        button_layout.addWidget(button_label)
         button.setLayout(button_layout)
 
         # Контейнер для WebView (для правильного расположения на странице)
@@ -86,7 +84,7 @@ class AccordionManager:
         webview_container.setStyleSheet("""
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
-            background-color: white;  
+            background-color: white;
         """)
         webview_container.setVisible(False)
         webview_container.setAttribute(Qt.WA_TransparentForMouseEvents)
@@ -95,6 +93,8 @@ class AccordionManager:
         web_view = QWebEngineView(webview_container)
         absolute_path = os.path.abspath(html_file_path)
         web_view.load(QUrl.fromLocalFile(absolute_path))
+
+        web_view.loadFinished.connect(lambda: self.resize_web_view_to_contents(web_view, webview_container))
 
         # Добавление WebView в контейнер
         web_container_layout = QVBoxLayout(webview_container)
@@ -109,13 +109,24 @@ class AccordionManager:
         item_layout.addWidget(webview_container)
 
         # Добавление spacer (отступа) между кнопками
-        self.spacer = QSpacerItem(10, 50, QSizePolicy.Minimum, QSizePolicy.Minimum)
-        item_layout.addItem(self.spacer)
+        spacer = QSpacerItem(10, 50, QSizePolicy.Minimum, QSizePolicy.Minimum)
+        item_layout.addItem(spacer)
 
         # Добавление отступа в главный контейнер
-        layout.addLayout(item_layout)
+        self.accordion_layout.addLayout(item_layout)
+        
+    def resize_web_view_to_contents(self, web_view : QWebEngineView, webview_container : QWidget):
+        script = """
+        var textSize = document.body.getBoundingClientRect();
 
-    def toggle_accordion(self, container, button):
+        size = { width: textSize.right, height: textSize.bottom};
+        """
+        web_view.page().runJavaScript(script, lambda size: self.resize_web_view(size, webview_container))
+
+    def resize_web_view(self, size, webview_container : QWidget):
+        webview_container.setFixedSize(webview_container.geometry().width(), int(size['height']) + 40)
+
+    def toggle_accordion(self, container : QWidget, button : QPushButton):
         """
         Функция для переключения видимости WebView в аккордеоне
         """

@@ -15,7 +15,7 @@ class ColoredCircleButton(QPushButton):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
 
-        rect = self.rect().adjusted(4, 4, -4, -4)
+        rect = self.rect().adjusted(1, 1, -1, -1)
         diameter = min(rect.width(), rect.height())
         rect = QRectF(rect.x() + (rect.width() - diameter) / 2,
                       rect.y() + (rect.height() - diameter) / 2,

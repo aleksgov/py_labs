@@ -38,6 +38,9 @@ class WebViewManager:
         self.set_transparent_background()
         self.adjust_web_view_style(type)
 
+        self.web_view.setVisible(False)
+        self.web_view.loadFinished.connect(lambda : self.web_view.setVisible(True))
+
     def set_transparent_background(self):
         """
         Устанавливает прозрачный фон для страницы в QWebEngineView.

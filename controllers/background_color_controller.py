@@ -8,22 +8,19 @@ from controllers.stylesheet_loader import load_stylesheet
 class BackgroundController:
     def __init__(self, main_window : MainWindow):
         self.main_window = main_window
+        self.button_size = 46
         self.color_buttons : dict[ColoredCircleButton, str] = {
-            ColoredCircleButton(QColor(255, 144, 0, 76), QColor(0, 102, 174, 76), 52, ""): "css_style/window_bg_colors/blue_yellow.qss",
-            ColoredCircleButton(QColor(255, 108, 0, 76), QColor(0, 158, 142, 76), 52, ""): "css_style/window_bg_colors/green_orange.qss",
-            ColoredCircleButton(QColor(144, 255, 0, 76), QColor(145, 24, 237, 76), 52,""): "css_style/window_bg_colors/green_purple.qss",
-            ColoredCircleButton(QColor(180, 13, 0, 76), QColor(0, 102, 174, 76), 52, ""): "css_style/window_bg_colors/red_blue.qss",
+            ColoredCircleButton(QColor(255, 144, 0, 76), QColor(0, 102, 174, 76), self.button_size, ""): "css_style/window_bg_colors/blue_yellow.qss",
+            ColoredCircleButton(QColor(255, 108, 0, 76), QColor(0, 158, 142, 76), self.button_size, ""): "css_style/window_bg_colors/green_orange.qss",
+            ColoredCircleButton(QColor(144, 255, 0, 76), QColor(145, 24, 237, 76), self.button_size,""): "css_style/window_bg_colors/green_purple.qss",
+            ColoredCircleButton(QColor(180, 13, 0, 76), QColor(0, 102, 174, 76), self.button_size, ""): "css_style/window_bg_colors/red_blue.qss",
         }
 
         for button, path in self.color_buttons.items():
             button.clicked.connect(lambda _, _path = path, _button = button: self.bind_button(_button, _path))
-            self.main_window.colorButtonsLayout.addWidget(button, alignment=Qt.AlignHCenter)
+            self.main_window.colorButtonsLayout.addWidget(button)
 
         self.displayed_button = None
-
-        self.main_window.colorButtonsLayout.parentWidget().setStyleSheet("background: white; border-radius: 36px;")
-        self.main_window.colorButtonsLayout.parentWidget().setFixedSize(QSize(60, 132))
-
         list(self.color_buttons.keys())[0].click()
 
     def bind_button(self, button : ColoredCircleButton, path : str):
