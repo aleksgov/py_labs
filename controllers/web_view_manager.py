@@ -11,7 +11,7 @@ class WebViewManager:
 
         self.web_views_config = {
             HtmlViewTypes.Theory: {'size': (1100, 650), 'position': (210, 110)},
-            HtmlViewTypes.LabVariant: {'size': (1100, 768), 'position': (210, 110)}
+            HtmlViewTypes.LabVariant: {'size': (1100, 650), 'position': (210, 110)}
         }
 
         self.html_buttons = {
