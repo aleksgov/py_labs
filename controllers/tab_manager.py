@@ -34,7 +34,6 @@ class TabManager:
         self.tab_widget.setTabEnabled(arrow_index, False)
         index = self.tab_widget.addTab(tab, label)
         self.tab_widget.setCurrentIndex(index)
-        self.main_window.LabChangeLabel.setText(label)
 
     def close_other_tabs(self):
         """
@@ -57,4 +56,6 @@ class TabManager:
         """
         Обрабатывает изменение вкладки.
         """
+        tab_name = self.tab_widget.tabText(index)
+        self.main_window.LabChangeLabel.setText(tab_name)
         self.close_tabs_after(index)
