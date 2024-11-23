@@ -7,10 +7,13 @@ class TabManager:
         self.main_window = main_window
         self.tab_widget = main_window.tab_widget
         self.buttonTabMap = {
-            main_window.firstLabButton: (main_window.firstLabTab, "Лабораторная работа №1"),
+            main_window.firstLabButton: (main_window.LabTab, "Лабораторная работа №1"),
+            main_window.secondLabButton: (main_window.LabTab, "Лабораторная работа №2"),
+            main_window.thirdLabButton: (main_window.LabTab, "Лабораторная работа №3"),
+            main_window.fourthLabButton: (main_window.LabTab, "Лабораторная работа №4"),
             main_window.theoryFirstLabButton: (main_window.htmlViewTab, "Теория"),
-            main_window.exampleFirstLabButton: (main_window.exampleFirstLabTab, "Пример"),
-            main_window.variantsFirstLabButton: (main_window.variantsFirstLabTab, "Задачи")
+            main_window.exampleFirstLabButton: (main_window.exampleTab, "Пример"),
+            main_window.variantsFirstLabButton: (main_window.variantsTab, "Задачи")
         }
 
         """
@@ -31,6 +34,7 @@ class TabManager:
         self.tab_widget.setTabEnabled(arrow_index, False)
         index = self.tab_widget.addTab(tab, label)
         self.tab_widget.setCurrentIndex(index)
+        self.main_window.LabChangeLabel.setText(label)
 
     def close_other_tabs(self):
         """

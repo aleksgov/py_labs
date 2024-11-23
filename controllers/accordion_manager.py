@@ -10,7 +10,7 @@ from MainWindow import MainWindow
 
 class AccordionManager:
     def __init__(self, main_window : MainWindow):
-        self.create_accordion(main_window.exampleFirstLabTab)
+        self.create_accordion(main_window.exampleTab)
 
     def create_accordion(self, parent : QWidget):
         # Создание области прокрутки
