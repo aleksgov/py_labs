@@ -18,13 +18,20 @@ class MainController():
         self.tab_manager = TabManager(self.mainWindow)
         self.web_view_manager = WebViewManager(self.mainWindow)
         self.shadow_manager = ShadowEffectManager(self.mainWindow)
-        self.accordion_manager = AccordionManager(self.mainWindow)
+        self.accordion_manager = AccordionManager()
         self.backgound_controller = BackgroundController(self.mainWindow)
+
+        self.tab_manager.tab_widget.currentChanged.connect(self.on_tab_changed)
 
         # Коннекты
         for i, btn in enumerate(self.variants_manager.buttons):
             btn.clicked.connect(lambda _, index=i: self.bind_variant_button(index + 1))
             self.shadow_manager.apply_shadow_effects_to_button(btn)
+
+    def on_tab_changed(self, index : int):
+        current_tab = self.tab_manager.tab_widget.currentWidget()
+        if current_tab is self.mainWindow.exampleTab:
+            self.accordion_manager.create_accordion(current_tab)
             
     def bind_variant_button(self, index : int):
         self.web_view_manager.load_html_from_file("documentation/FirstLab/Variants.html", HtmlViewTypes.LabVariant, index)

@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QGraphicsDropShadowEffect
+from PyQt5.QtWidgets import QGraphicsDropShadowEffect, QPushButton
 from PyQt5.QtGui import QColor
 
 from MainWindow import MainWindow
@@ -11,19 +11,19 @@ class ShadowEffectManager:
     # Настройка теней для элементов
     def apply_shadow_effects(self):
         shadow_buttons = [
-            self.main_window.FirstLabWidget,
-            self.main_window.FourthLabWidget,
-            self.main_window.SecondLabWidget,
-            self.main_window.ThirdLabWidget,
-            self.main_window.theoryFirstLabButton,
-            self.main_window.exampleFirstLabButton,
-            self.main_window.variantsFirstLabButton
+            self.main_window.firstLabButton,
+            self.main_window.secondLabButton,
+            self.main_window.thirdLabButton,
+            self.main_window.fourthLabButton,
+            self.main_window.theoryLabButton,
+            self.main_window.exampleLabButton,
+            self.main_window.variantsLabButton
         ]
         for button in shadow_buttons:
             self.apply_shadow_effects_to_button(button)
 
     # Применение тени к кнопкам вариантов
-    def apply_shadow_effects_to_button(self, button):
+    def apply_shadow_effects_to_button(self, button : QPushButton):
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(10)
         shadow.setOffset(0, 0)

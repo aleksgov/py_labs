@@ -2,6 +2,8 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import Qt, QUrl
 import os
 
+from Globals import Config
+
 from MainWindow import MainWindow
 from controllers.html_view_types import HtmlViewTypes
 
@@ -15,7 +17,7 @@ class WebViewManager:
         }
 
         self.html_buttons = {
-            main_window.theoryFirstLabButton: ("documentation/FirstLab/Theory.html", HtmlViewTypes.Theory),
+            main_window.theoryLabButton: (Config.config[Config.current_lab]["theory_path"], HtmlViewTypes.Theory),
         }
 
         for button, (html, type) in self.html_buttons.items():

@@ -5,12 +5,9 @@ from PyQt5.QtCore import QUrl, Qt, QSize
 import os
 
 from controllers.stylesheet_loader import load_stylesheet
-from MainWindow import MainWindow
-
+from Globals import Config
 
 class AccordionManager:
-    def __init__(self, main_window : MainWindow):
-        self.create_accordion(main_window.exampleTab)
 
     def create_accordion(self, parent : QWidget):
         # Создание области прокрутки
@@ -37,20 +34,24 @@ class AccordionManager:
         self.accordion_layout.setSpacing(0)
 
         # Создание контейнеров (элементов) для html
-        self.create_accordion_item("1-ый", "Определение параметров и постановка задачи",
-                                   "documentation/FirstLab/FirstExample.html")
-        self.create_accordion_item("2-ой", "Создание модели СМО на GPSS",
-                                   "documentation/FirstLab/SecondExample.html")
-        self.create_accordion_item("3-ий", "Анализ результатов моделирования",
-                                   "documentation/FirstLab/ThirdExample.html")
+        for i in range(Config.config[Config.current_lab]["example"]["steps_count"]):
+            temp = Config.config[Config.current_lab]["example"]
+            self.create_accordion_item(temp["steps_counters"][i],
+                                       temp["steps_headers"][i],
+                                       temp["steps_paths"][i])
 
         # Установка прокрутки для аккордеона
         scroll_area.setWidget(accordion_widget)
 
+        # Прикрепление layout к другому родителю, чтобы освободить место под новый
+        if parent.layout():
+            QWidget().setLayout(parent.layout())
+
         # Основной вертикальный элемент
-        layout = QVBoxLayout(parent)
+        layout = QVBoxLayout()
         layout.setContentsMargins(135, 40, 0, 0)
         layout.addWidget(scroll_area)
+        parent.setLayout(layout)
 
     def create_accordion_item(self, step, step_description, html_file_path, container_width=1150,
                               container_height=1000):
