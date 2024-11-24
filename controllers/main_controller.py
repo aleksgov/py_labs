@@ -6,6 +6,7 @@ from controllers.accordion_manager import AccordionManager
 from controllers.variants_manager import VariantsManager
 from controllers.html_view_types import HtmlViewTypes
 from controllers.background_color_controller import BackgroundController
+from Globals import Config
 
 class MainController():
     def __init__(self):
@@ -13,8 +14,7 @@ class MainController():
               
         # Менеджеры
         self.variants_manager = VariantsManager()
-        self.mainWindow.tasksFrame.layout().addWidget(self.variants_manager.get_scroll_area(19))
-
+        self.mainWindow.tasksFrame.layout().addWidget(self.variants_manager.get_scroll_area())
         self.tab_manager = TabManager(self.mainWindow)
         self.web_view_manager = WebViewManager(self.mainWindow)
         self.shadow_manager = ShadowEffectManager(self.mainWindow)
@@ -29,6 +29,7 @@ class MainController():
             self.shadow_manager.apply_shadow_effects_to_button(btn)
 
     def on_tab_changed(self, index : int):
+        self.variants_manager.set_buttons_count(Config.config[Config.current_lab]["variants_count"])
         current_tab = self.tab_manager.tab_widget.currentWidget()
         if current_tab is self.mainWindow.exampleTab:
             self.accordion_manager.create_accordion(current_tab)

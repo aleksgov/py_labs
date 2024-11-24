@@ -70,6 +70,5 @@ class VariantsManager:
             else:
                 self.buttons[i].setHidden(False)
 
-    def get_scroll_area(self, count : int) -> QScrollArea:
-        self.set_buttons_count(count)
+    def get_scroll_area(self) -> QScrollArea:
         return self.scroll_area

@@ -5,6 +5,7 @@ class Config:
         1 : {
             "header" : "Лабораторная работа №1",
             "variants_path": "documentation/FirstLab/Variants.html",
+            "variants_count" : 19,
             "theory_path" : "documentation/FirstLab/Theory.html",
             "example" : {
                 "steps_count": 3,
@@ -20,6 +21,7 @@ class Config:
         2 : {
             "header" : "Лабораторная работа №2",
             "variants_path": "documentation/FirstLab/Variants.html",
+            "variants_count" : 16,
             "theory_path" : "documentation/FirstLab/Theory.html",
             "example" : {
                 "steps_count": 1,
@@ -34,11 +36,13 @@ class Config:
         3 : {
             "header" : "Лабораторная работа №3",
             "variants_path": "documentation/FirstLab/Variants.html",
+            "variants_count" : 19,
             "theory_path" : "documentation/FirstLab/Theory.html",
         },
         4 : {
             "header" : "Лабораторная работа №4",
             "variants_path": "documentation/FirstLab/Variants.html",
+            "variants_count" : 19,
             "theory_path" : "documentation/FirstLab/Theory.html",
         },
     }
