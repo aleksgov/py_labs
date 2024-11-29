@@ -26,7 +26,7 @@ class AccordionManager:
         vertical_scrollbar = scroll_area.verticalScrollBar()
         vertical_scrollbar.setStyleSheet(load_stylesheet("css_style/scroll.qss"))
 
-        scroll_area.setFixedSize(1190, 600)
+        scroll_area.setFixedSize(1190, 640)
 
         # Основной виджет аккордеона
         accordion_widget = QWidget()
@@ -49,7 +49,7 @@ class AccordionManager:
 
         # Основной вертикальный элемент
         layout = QVBoxLayout()
-        layout.setContentsMargins(135, 40, 0, 0)
+        layout.setContentsMargins(135, 140, 0, 0)
         layout.addWidget(scroll_area)
         parent.setLayout(layout)
 
