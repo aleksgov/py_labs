@@ -16,12 +16,12 @@ class WebViewManager:
             HtmlViewTypes.LabVariant: {'size': (1100, 650), 'position': (210, 110)}
         }
 
-        self.html_buttons = {
-            main_window.theoryLabButton: (Config.config[Config.current_lab]["theory_path"], HtmlViewTypes.Theory),
-        }
+        html_path_getter = lambda: Config.config[Config.current_lab]["theory_path"]
+        button_type = HtmlViewTypes.Theory
 
-        for button, (html, type) in self.html_buttons.items():
-            button.clicked.connect(lambda _, _html=html, _type=type: self.load_html_from_file(_html, _type))
+        main_window.theoryLabButton.clicked.connect(
+            lambda: self.load_html_from_file(html_path_getter(), button_type)
+        )
 
     def load_html_from_file(self, file_path: str, type: HtmlViewTypes, variant_index: int = -1):
         absolute_path = os.path.abspath(file_path)
