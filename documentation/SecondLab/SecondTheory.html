@@ -1,76 +1,122 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="ru-RU">
 <head>
-    <meta charset="utf-8">
-    <style>
-        body {
-            padding-right: 80px;
-            overflow-y: auto;
-        }
+  <meta charset="utf-8">
+  <style>
+    body {
+        padding-right: 80px;
+        padding-left: 20px;
+        overflow-y: auto;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 24px;
+        line-height: 1.42857143;
+        color: #333;
+        margin: 0;
+    }
 
-        ::-webkit-scrollbar {
-            width: 0.6vw;
-            background-color: transparent;
-        }
+    ::-webkit-scrollbar {
+        width: 0.6vw;
+        background-color: transparent;
+    }
 
-        ::-webkit-scrollbar-track {
-            background-color: lightgray;
-            border-radius: 5px;
-        }
+    ::-webkit-scrollbar-track {
+        background-color: lightgray;
+        border-radius: 5px;
+    }
 
-        ::-webkit-scrollbar-thumb {
-            background-color: #888;
-            border-radius: 5px;
-        }
+    ::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 5px;
+    }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #aaa;
-        }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #aaa;
+    }
 
-        .text-content {
-            font-family: 'Century Gothic', sans-serif;
-            font-weight: 400;
-            line-height: 1.5;
-            font-size: 24px;
-            text-align: justify;
-            color: #000000;
-        }
+    h1 {
+      font-family: inherit;
+      font-weight: 500;
+      line-height: 1.1;
+      color: inherit;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
 
-        .text-content h1,
-        .text-content h3 {
-            text-align: center;
-        }
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
 
-        .text-content p {
-            text-indent: 30px;
-            margin: 0 0 5px 0;
-        }
+    h3 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #2A2F35;
+      font-family: '-apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif';
+    }
 
-        .text-content ul {
-            margin: 0;
-            padding-left: 40px;
-        }
-        img {
-            display: block;
-            margin: 0 auto;
-            border: 10px solid #f0f0f0;
-        }
-        pre {
-            background-color: #f4f4f4;
-            font-size: 24px;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: Courier, monospace;
-            white-space: pre-wrap;
-        }
-    </style>
+    p {
+      margin: 0 0 10px;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      font-size: 22px;
+      line-height: 1.42857143;
+      color: #333;
+      border-radius: 5px;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="text-content">
-        <h1>Лабораторная Работа №2</h1>
-    </div>
+    <h2>Лабораторная Работа №2</h2>
+    <h3 style="font-size: 28px; text-align: center; margin-top: 10px; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">XML — Обзор</h3>
+    <p>XML расшифровывается как расширяемый язык.</span>Это текстовый язык разметки, основанный на стандартном обобщенном языке разметки (SGML).</p>
+    <p>XML-теги идентифицируют данные и используются для хранения и организации данных, а не указывают, как их отображать как HTML-теги, которые используются для отображения данных.</span>XML не собирается заменять HTML в ближайшем будущем, но он открывает новые возможности, применяя многие успешные функции HTML.</p>
+    <p>Есть три важных характеристики XML, которые делают его полезным в различных системах и решениях:</p>
+    <ul class="list">
+    <li>
+    <p><b>XML расширяем</b> &#8212; XML позволяет вам создавать свои собственные описательные теги или язык, который подходит вашему приложению.</p>
+    </li>
+    <li>
+    <p><b>XML переносит данные, не представляет их</b> &#8212; XML позволяет хранить данные независимо от того, как они будут представлены.</p>
+    </li>
+    <li>
+    <p><b>XML является общедоступным стандартом</b> &#8212; XML был разработан организацией под названием World Wide Web Consortium (W3C) и доступен в качестве открытого стандарта.</p>
+    </li>
+    </ul>
+    <h3>Использование XML</h3>
+    <p>Краткий список использования XML говорит само за себя:</p>
+    <ul class="list">
+    <li>
+    <p>XML может работать за сценой, чтобы упростить создание документов HTML для крупных веб-сайтов.</p>
+    </li>
+    <li>
+    <p>XML может использоваться для обмена информацией между организациями и системами.</p>
+    </li>
+    <li>
+    <p>XML можно использовать для выгрузки и перезагрузки баз данных.</p>
+    </li>
+    <li>
+    <p>XML может использоваться для хранения и упорядочения данных, что может настраивать ваши потребности в обработке данных.</p>
+    </li>
+    <li>
+    <p>XML можно легко объединить с таблицами стилей для создания практически любого желаемого результата.</p>
+    </li>
+    <li>
+    <p>Фактически, любой тип данных может быть выражен в виде XML-документа.</p>
+    </li>
+    </ul>
+    <h3>Что такое разметка?</h3>
+    <p>XML &#8212; это язык разметки, который определяет набор правил для кодирования документов в формате, который читается человеком и читается машиной.</span>Так <i>что же такое язык разметки?</i></span>Разметка &#8212; это информация, добавляемая в документ, которая определенным образом усиливает его значение, поскольку она идентифицирует части и то, как они связаны друг с другом.</span>Более конкретно, язык разметки &#8212; это набор символов, которые могут быть помещены в текст документа для разграничения и маркировки частей этого документа.</p>
+    <p>В следующем примере показано, как выглядит XML-разметка при внедрении в фрагмент текста:</p>
+    <pre>
+  &lt;message&gt;
+      &lt;text&gt;Hello, world!&lt;/text&gt;
+  &lt;/message&gt; </pre>
+    <p>Этот фрагмент содержит символы разметки или теги, такие как &lt;message&gt; &#8230; &lt;/ message&gt; и &lt;text&gt; &#8230; &lt;/ text&gt;.</span>Теги &lt;message&gt; и &lt;/ message&gt; отмечают начало и конец фрагмента кода XML.</span>Теги &lt;text&gt; и &lt;/ text&gt; окружают текст Hello, world !.</p>
+    <h3>Является ли XML языком программирования?</h3>
+    <p>Язык программирования состоит из грамматических правил и собственного словарного запаса, который используется для создания компьютерных программ.</span>Эти программы инструктируют компьютер для выполнения определенных задач.</span>XML не может считаться языком программирования, поскольку он не выполняет никаких вычислений или алгоритмов.</span>Обычно он хранится в простом текстовом файле и обрабатывается специальным программным обеспечением, способным интерпретировать XML.</p>
 </body>
-
 </html>
