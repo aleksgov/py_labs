@@ -35,5 +35,6 @@ class MainController():
             self.accordion_manager.create_accordion(current_tab)
             
     def bind_variant_button(self, index : int):
-        self.web_view_manager.load_html_from_file("documentation/FirstLab/Variants.html", HtmlViewTypes.LabVariant, index)
+        variants_path = Config.config[Config.current_lab]["variants_path"]
+        self.web_view_manager.load_html_from_file(variants_path, HtmlViewTypes.LabVariant, index)
         self.tab_manager.open_tab(self.mainWindow.htmlViewTab, f"Вариант №{index}")

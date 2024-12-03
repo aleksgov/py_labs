@@ -4,9 +4,9 @@ class Config:
     config = {
         1 : {
             "header" : "Лабораторная работа №1",
-            "variants_path": "documentation/FirstLab/Variants.html",
+            "variants_path": "documentation/FirstLab/FirstLabVariants.html",
             "variants_count" : 19,
-            "theory_path" : "documentation/FirstLab/FirstTheory.html",
+            "theory_path" : "documentation/FirstLab/FirstLabTheory.html",
             "example" : {
                 "steps_count": 3,
                 "steps_counters" : ["1-ый", "2-ой", "3-ий"],
@@ -20,9 +20,9 @@ class Config:
         },
         2 : {
             "header" : "Лабораторная работа №2",
-            "variants_path": "documentation/FirstLab/Variants.html",
-            "variants_count" : 16,
-            "theory_path" : "documentation/SecondLab/SecondTheory.html",
+            "variants_path": "documentation/SecondLab/SecondLabVariants.html",
+            "variants_count" : 30,
+            "theory_path" : "documentation/SecondLab/SecondLabTheory.html",
             "example" : {
                 "steps_count": 1,
                 "steps_counters" : ["1-ый"
@@ -35,14 +35,14 @@ class Config:
         },
         3 : {
             "header" : "Лабораторная работа №3",
-            "variants_path": "documentation/FirstLab/Variants.html",
+            "variants_path": "documentation/FirstLab/FirstLabVariants.html",
             "variants_count" : 19,
-            "theory_path" : "documentation/FirstLab/FirstTheory.html",
+            "theory_path" : "documentation/FirstLab/FirstLabTheory.html",
         },
         4 : {
             "header" : "Лабораторная работа №4",
-            "variants_path": "documentation/FirstLab/Variants.html",
+            "variants_path": "documentation/FirstLab/FirstLabVariants.html",
             "variants_count" : 19,
-            "theory_path" : "documentation/FirstLab/FirstTheory.html",
+            "theory_path" : "documentation/FirstLab/FirstLabTheory.html",
         },
     }
