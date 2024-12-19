@@ -1,7 +1,35 @@
-from PyQt5.QtWidgets import QWidget
-
+from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QTabWidget, QMainWindow, QApplication
 from MainWindow import MainWindow
 from Globals import Config
+
+
+class NotificationLabel(QLabel):
+    def __init__(self, message, parent=None):
+        super().__init__(message, parent)
+        self.setWindowFlags(Qt.ToolTip | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+        self.setStyleSheet("""
+            QLabel {
+                background-color: #333;
+                color: white;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 12px;
+            }
+        """)
+        self.setAlignment(Qt.AlignCenter)
+
+    def show_notification(self, parent, duration=3000):
+        """Отображаем уведомление и скрываем через указанное время."""
+        self.adjustSize()
+        window_geometry = parent.geometry()
+        x = window_geometry.center().x() - self.width() // 2
+        y = window_geometry.top() + self.height() + 20
+        self.move(x, y)
+        self.show()
+
+        QTimer.singleShot(duration, self.hide)
+
 
 class TabManager:
     def __init__(self, main_window : MainWindow):
@@ -17,6 +45,9 @@ class TabManager:
             main_window.exampleLabButton: (main_window.exampleTab, "Пример"),
             main_window.variantsLabButton: (main_window.variantsTab, "Задачи")
         }
+
+        self.notification_label = NotificationLabel("", self.main_window)
+
         """
         Настройка подключения кнопок к методам для открытия вкладок.
         """
@@ -50,6 +81,9 @@ class TabManager:
         index = self.tab_widget.addTab(tab, label)
         self.tab_widget.setCurrentIndex(index)
 
+        if label == "Теория":
+            self.show_notification("Чтобы масштабировать страницу, используйте сочетание клавиш Ctrl + колесико мыши.")
+
     def close_other_tabs(self):
         """
         Закрывает все вкладки, кроме текущей.
@@ -72,3 +106,7 @@ class TabManager:
         Обрабатывает изменение вкладки.
         """
         self.close_tabs_after(index)
+
+    def show_notification(self, message):
+        self.notification_label.setText(message)
+        self.notification_label.show_notification(self.main_window)
