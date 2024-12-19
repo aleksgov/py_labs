@@ -65,8 +65,8 @@ class AccordionManager:
 
         # Настройка заголовка у кнопок
         label_text = f"""
-           <span style="font-family: 'Century Gothic'; font-size: 40px; font-weight: bold; padding: 10px; display: inline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{step} шаг.</span>
-           <span style="font-family: 'Century Gothic'; font-size: 30px; display: inline;">&nbsp;&nbsp;{step_description}</span>
+           <span style="font-family: 'Century Gothic'; font-size: 40px; color: #333; font-weight: bold; padding: 10px; display: inline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{step} шаг.</span>
+           <span style="font-family: 'Century Gothic'; font-size: 30px; color: #333; display: inline;">&nbsp;&nbsp;{step_description}</span>
            """
         button_label = QLabel(label_text)
         button_label.setAttribute(Qt.WA_TransparentForMouseEvents)

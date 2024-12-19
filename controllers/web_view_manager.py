@@ -1,4 +1,6 @@
-from PyQt5.QtWebEngineWidgets import QWebEngineView
+import webbrowser
+
+from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEnginePage
 from PyQt5.QtCore import Qt, QUrl
 import os
 
@@ -11,11 +13,16 @@ class WebViewManager:
     def __init__(self, main_window : MainWindow):
         self.web_view = QWebEngineView(main_window.htmlViewTab)
 
+        self.web_view.setPage(CustomWebEnginePage(self.web_view))
+
+        profile = self.web_view.page().profile()
+        profile.clearHttpCache()
+        profile.clearAllVisitedLinks()
+
         self.web_views_config = {
             HtmlViewTypes.Theory: {'size': (1100, 650), 'position': (210, 110)},
             HtmlViewTypes.LabVariant: {'size': (1100, 650), 'position': (210, 110)}
         }
-
         html_path_getter = lambda: Config.config[Config.current_lab]["theory_path"]
         button_type = HtmlViewTypes.Theory
 
@@ -63,3 +70,14 @@ class WebViewManager:
         # Позиция на странице
         x, y = config['position']
         self.web_view.move(x, y)
+
+class CustomWebEnginePage(QWebEnginePage):
+    def acceptNavigationRequest(self, url, nav_type, is_main_frame):
+        """
+        Переопределяем обработку запросов на навигацию.
+        Если URL относится к внешнему ресурсу, открываем его в системном браузере.
+        """
+        if url.scheme() in ["http", "https"]:
+            webbrowser.open(url.toString())
+            return False
+        return super().acceptNavigationRequest(url, nav_type, is_main_frame)
