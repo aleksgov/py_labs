@@ -1,5 +1,5 @@
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtWidgets import QScrollArea, QVBoxLayout, QPushButton, QLabel, QWidget, QSpacerItem, QSizePolicy
+from PyQt5.QtWidgets import QScrollArea, QVBoxLayout, QPushButton, QLabel, QWidget, QSpacerItem, QSizePolicy, QFrame
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import QUrl, Qt, QSize
 import os
@@ -53,6 +53,20 @@ class AccordionManager:
         layout.addWidget(scroll_area)
         parent.setLayout(layout)
 
+    def create_line(self, parent_widget, widget_width, color = "#333"):
+        """
+        Функция для создания линии под заголовком при открытии аккордеона
+        """
+        line = QFrame()
+        line.setFrameShape(QFrame.HLine)
+        line.setFrameShadow(QFrame.Sunken)
+        line.setFixedHeight(1)
+        line.setStyleSheet(f"background-color: {color};")
+        line.setFixedWidth(widget_width.width() // 2)
+        line.setVisible(False)
+        parent_widget.addWidget(line, 0, Qt.AlignCenter)
+        return line
+
     def create_accordion_item(self, step, step_description, html_file_path, container_width=1150,
                               container_height=1000):
         # Кнопки аккордеона
@@ -76,8 +90,13 @@ class AccordionManager:
         button.setIconSize(QSize(45, 45))
 
         button_layout = QVBoxLayout()
+        spacer = QSpacerItem(1, 1, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        button_layout.addItem(spacer)
+        invisible_line = self.create_line(button_layout, button, color="transparent") # Невидимая линия для поддержки центрирования текста
         button_layout.addWidget(button_label)
         button.setLayout(button_layout)
+        button_layout.addItem(spacer)
+        line = self.create_line(button_layout, button)
 
         # Контейнер для WebView (для правильного расположения на странице)
         webview_container = QWidget()
@@ -102,7 +121,7 @@ class AccordionManager:
         web_container_layout.addWidget(web_view)
 
         # Связывание кнопки с функцией отображения / скрытия WebView при нажатии на кнопку
-        button.clicked.connect(lambda: self.toggle_accordion(webview_container, button))
+        button.clicked.connect(lambda: self.toggle_accordion(webview_container, button, invisible_line, line))
 
         # Вертикальное расположение для каждого элемента аккордеона
         item_layout = QVBoxLayout()
@@ -115,7 +134,7 @@ class AccordionManager:
 
         # Добавление отступа в главный контейнер
         self.accordion_layout.addLayout(item_layout)
-        
+
     def resize_web_view_to_contents(self, web_view : QWebEngineView, webview_container : QWidget):
         script = """
         var textSize = document.body.getBoundingClientRect();
@@ -127,11 +146,13 @@ class AccordionManager:
     def resize_web_view(self, size, webview_container : QWidget):
         webview_container.setFixedSize(webview_container.geometry().width(), int(size['height']) + 40)
 
-    def toggle_accordion(self, container : QWidget, button : QPushButton):
+    def toggle_accordion(self, container : QWidget, button : QPushButton, invisible_line : QFrame, line : QFrame):
         """
         Функция для переключения видимости WebView в аккордеоне
         """
         container.setVisible(not container.isVisible())
+        line.setVisible(container.isVisible())
+        invisible_line.setVisible((container.isVisible()))
 
         # Меняем иконку в зависимости от видимости (верхняя\нижняя кнопка)
         if container.isVisible():
