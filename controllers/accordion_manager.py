@@ -90,12 +90,18 @@ class AccordionManager:
         button.setIconSize(QSize(45, 45))
 
         button_layout = QVBoxLayout()
-        spacer = QSpacerItem(1, 1, QSizePolicy.Minimum, QSizePolicy.Expanding)
-        button_layout.addItem(spacer)
-        invisible_line = self.create_line(button_layout, button, color="transparent") # Невидимая линия для поддержки центрирования текста
+
+        top_spacer = QSpacerItem(1, 1, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        button_layout.addItem(top_spacer)
+
+        # Невидимая линия для поддержки центрирования текста
+        invisible_line = self.create_line(button_layout, button, color="transparent")
         button_layout.addWidget(button_label)
+
         button.setLayout(button_layout)
-        button_layout.addItem(spacer)
+
+        bottom_spacer = QSpacerItem(1, 1, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        button_layout.addItem(bottom_spacer)
         line = self.create_line(button_layout, button)
 
         # Контейнер для WebView (для правильного расположения на странице)
@@ -151,14 +157,18 @@ class AccordionManager:
         Функция для переключения видимости WebView в аккордеоне
         """
         container.setVisible(not container.isVisible())
-        line.setVisible(container.isVisible())
-        invisible_line.setVisible((container.isVisible()))
-
+        print(f"Container visible: {container.isVisible()}")
+        print(f"Line visible: {line.isVisible()}")
+        print(f"Invisible line visible: {invisible_line.isVisible()}")
         # Меняем иконку в зависимости от видимости (верхняя\нижняя кнопка)
         if container.isVisible():
             triangle_icon = QIcon(QPixmap("documentation/assets/up_arrow.png"))
+            line.setVisible(True)
+            invisible_line.setVisible(True)
         else:
             triangle_icon = QIcon(QPixmap("documentation/assets/down_arrow.png"))
+            line.setVisible(False)
+            invisible_line.setVisible(False)
 
         button.setIcon(triangle_icon)
 
