@@ -67,8 +67,7 @@ class AccordionManager:
         parent_widget.addWidget(line, 0, Qt.AlignCenter)
         return line
 
-    def create_accordion_item(self, step, step_description, html_file_path, container_width=1150,
-                              container_height=1000):
+    def create_accordion_item(self, step, step_description, html_file_path, container_width=1150, container_height=1000):
         # Кнопки аккордеона
         button = QPushButton()
         button.setFocusPolicy(Qt.NoFocus)
@@ -157,9 +156,7 @@ class AccordionManager:
         Функция для переключения видимости WebView в аккордеоне
         """
         container.setVisible(not container.isVisible())
-        print(f"Container visible: {container.isVisible()}")
-        print(f"Line visible: {line.isVisible()}")
-        print(f"Invisible line visible: {invisible_line.isVisible()}")
+
         # Меняем иконку в зависимости от видимости (верхняя\нижняя кнопка)
         if container.isVisible():
             triangle_icon = QIcon(QPixmap("documentation/assets/up_arrow.png"))
